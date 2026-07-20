@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/figure-heloc-inquiries-openapi-original.yml
+docs: https://docs.figure.com/getting-started
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  notes: >-
+    All Figure Partner APIs (HELOC Inquiries, HELOC Pre-qualification, Portfolio
+    Manager) authenticate with a single apikey request header. Keys are issued
+    per environment (test vs production) during onboarding. A User-Agent header
+    is also required on every request. Payloads may be optionally JWE/RSA-encrypted:
+    requests encrypted with Figure's public key, responses encrypted on demand via
+    the X-Encrypt-Response: true header. No OAuth2/OIDC is used, so there is no scope
+    surface.
+  jwe_encryption: https://docs.figure.com/jwe-data-protection/intro
+schemes:
+- name: apikey
+  type: apiKey
+  in: header
+  parameter: apikey
+  sources:
+  - openapi/figure-heloc-inquiries-openapi-original.yml
+  applies_to:
+  - HELOC Inquiries
+  - HELOC Pre-qualification
+  - Portfolio Manager
