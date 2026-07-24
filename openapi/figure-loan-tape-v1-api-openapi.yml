@@ -1,0 +1,230 @@
+openapi: 3.1.0
+info:
+  title: HELOC Inquiries Encryption Loan Tape V1 API
+  version: v1
+servers:
+- url: https://api.test.figure.com
+  description: Test environment
+- url: https://api.figure.com
+  description: Production environment
+security:
+- apikey: []
+tags:
+- name: Loan Tape V1
+paths:
+  /external/secure/api/v1/portfolio/asset/types:
+    get:
+      tags:
+      - Loan Tape V1
+      summary: Returns the distinct list of asset types for currently owned loans
+      parameters:
+      - name: apikey
+        in: header
+        description: Provided key used to access the application's api
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of available asset types associated to your account
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: array
+                xml: {}
+                items:
+                  type: string
+      deprecated: false
+  /external/secure/api/v1/portfolio/layouts/{assetType}:
+    get:
+      tags:
+      - Loan Tape V1
+      summary: Returns the distinct list of available layouts for the given asset type
+      parameters:
+      - name: assetType
+        in: path
+        schema:
+          type: string
+      - name: apikey
+        in: header
+        description: Provided key used to access the application's api
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of available layouts for the given asset type
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: array
+                xml: {}
+                items:
+                  type: string
+      deprecated: false
+  /external/secure/api/v1/portfolio/download/owned/{assetType}/{layout}:
+    get:
+      tags:
+      - Loan Tape V1
+      summary: Download the latest record of owned loan data by asset type and layout
+      parameters:
+      - name: assetType
+        in: path
+        schema:
+          type: string
+      - name: layout
+        in: path
+        description: CSV layout available for the provided asset type
+        schema:
+          type: string
+      - name: apikey
+        in: header
+        description: Provided key used to access the application's api
+        schema:
+          type: string
+      - name: fundingStatus
+        in: query
+        description: Filter for loans by funding status. Options are FUNDED, RECISSION, or ANY. Defaults to FUNDED.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: CSV record of owned loan data based on the specified asset type and layout
+          headers: {}
+          content:
+            text/plain:
+              schema:
+                type: string
+                xml:
+                  name: String
+      deprecated: false
+  /external/secure/api/v1/portfolio/download/owned/{assetType}/{layout}/{date}:
+    get:
+      tags:
+      - Loan Tape V1
+      summary: Download CSV record of owned loan data by asset type, layout, and cutoff date
+      parameters:
+      - name: assetType
+        in: path
+        schema:
+          type: string
+      - name: layout
+        in: path
+        description: CSV layout available for the provided asset type
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: Cutoff date of requested tape
+        schema:
+          type: string
+          format: date
+      - name: apikey
+        in: header
+        description: Provided key used to access the application's api
+        schema:
+          type: string
+      - name: fundingStatus
+        in: query
+        description: Filter for loans by funding status. Options are FUNDED, RECISSION, or ANY. Defaults to FUNDED.
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: CSV record of owned loan data based on the specified asset type, layout, and cutoff date
+          headers: {}
+          content:
+            text/plain:
+              schema:
+                type: string
+                xml:
+                  name: String
+      deprecated: false
+  /external/secure/api/v1/portfolio/download/pledged/{assetType}/{layout}:
+    get:
+      tags:
+      - Loan Tape V1
+      summary: Download the latest record of pledged loan data by asset type and layout
+      parameters:
+      - name: assetType
+        in: path
+        schema:
+          type: string
+      - name: layout
+        in: path
+        description: CSV layout available for the provided asset type
+        schema:
+          type: string
+      - name: apikey
+        in: header
+        description: Provided key used to access the application's api
+        schema:
+          type: string
+      - name: cutoffDate
+        in: query
+        description: Cutoff date for requested asset data
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: CSV record of pledged loan data based on the specified asset type and layout
+          headers: {}
+          content:
+            text/plain:
+              schema:
+                type: string
+                xml:
+                  name: String
+      deprecated: false
+  /external/secure/api/v1/portfolio/download/pledged/{assetType}/{layout}/{date}:
+    get:
+      tags:
+      - Loan Tape V1
+      summary: Download CSV record of pledged loan data by asset type, layout, and cutoff date
+      parameters:
+      - name: assetType
+        in: path
+        schema:
+          type: string
+      - name: layout
+        in: path
+        description: CSV layout available for the provided asset type
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: Date in which assets were actively encumbered by a warehouse
+        schema:
+          type: string
+          format: date
+      - name: apikey
+        in: header
+        description: Provided key used to access the application's api
+        schema:
+          type: string
+      - name: cutoffDate
+        in: query
+        description: Cutoff date for requested asset data
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: CSV record of pledged loan data based on the specified asset type, layout, and cutoff date
+          headers: {}
+          content:
+            text/plain:
+              schema:
+                type: string
+                xml:
+                  name: String
+      deprecated: false
+components:
+  securitySchemes:
+    apikey:
+      type: apiKey
+      name: apikey
+      in: header

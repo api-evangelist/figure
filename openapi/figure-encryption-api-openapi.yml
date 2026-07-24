@@ -1,0 +1,47 @@
+openapi: 3.1.0
+info:
+  title: HELOC Inquiries Encryption API
+  version: v1
+servers:
+- url: https://api.test.figure.com
+  description: Test environment
+- url: https://api.figure.com
+  description: Production environment
+security:
+- apikey: []
+tags:
+- name: Encryption
+paths:
+  /encryption/v1/encrypt:
+    post:
+      tags:
+      - Encryption
+      summary: Encrypt a JSON payload using Figure's public key
+      operationId: encryptPayload
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncryptPayloadResponse'
+components:
+  schemas:
+    EncryptPayloadResponse:
+      properties:
+        encrypted:
+          type: string
+      required:
+      - encrypted
+  securitySchemes:
+    apikey:
+      type: apiKey
+      name: apikey
+      in: header

@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: HELOC Inquiries Encryption Payment History V2 API
+  version: v1
+servers:
+- url: https://api.test.figure.com
+  description: Test environment
+- url: https://api.figure.com
+  description: Production environment
+security:
+- apikey: []
+tags:
+- name: Payment History V2
+paths:
+  /external/secure/api/v2/portfolio/download/owned/payment-history:
+    get:
+      tags:
+      - Payment History V2
+      summary: Download the record of payments for owned loans by asset type and report date
+      parameters:
+      - name: assetType
+        in: query
+        description: Asset type to query assets for. Must provide originatorId if using
+        required: false
+        schema:
+          type: string
+      - name: originatorId
+        in: query
+        description: Originator id to query assets for. Must provide assetType if using assetType query param
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: assetGroup
+        in: query
+        description: Name of asset group to filter assets with
+        required: false
+        schema:
+          type: string
+      - name: reportDate
+        in: query
+        description: Cutoff date of requested payment history
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: ownsPayments
+        in: query
+        description: Only show payments received during ownership of loan
+        required: false
+        schema:
+          type: boolean
+      - name: apikey
+        in: header
+        description: Provided key used to access the application's api
+        schema:
+          type: string
+      responses:
+        '200':
+          description: CSV of payments for owned loans by asset type and report date
+          headers: {}
+          content:
+            text/plain:
+              schema:
+                type: string
+                xml:
+                  name: String
+      deprecated: false
+components:
+  securitySchemes:
+    apikey:
+      type: apiKey
+      name: apikey
+      in: header

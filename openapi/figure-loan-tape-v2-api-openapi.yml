@@ -1,0 +1,131 @@
+openapi: 3.1.0
+info:
+  title: HELOC Inquiries Encryption Loan Tape V2 API
+  version: v1
+servers:
+- url: https://api.test.figure.com
+  description: Test environment
+- url: https://api.figure.com
+  description: Production environment
+security:
+- apikey: []
+tags:
+- name: Loan Tape V2
+paths:
+  /external/secure/api/v2/portfolio/asset/types:
+    get:
+      tags:
+      - Loan Tape V2
+      summary: Returns the distinct list of asset types and groups for currently owned loans
+      parameters:
+      - name: apikey
+        in: header
+        description: Provided key used to access the application's api
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of available asset types associated with this account
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: array
+                xml: {}
+                items:
+                  type: string
+      deprecated: false
+  /external/secure/api/v2/portfolio/layouts:
+    get:
+      tags:
+      - Loan Tape V2
+      summary: Returns the distinct list of available layouts for the given asset type
+      parameters:
+      - name: apikey
+        in: header
+        description: Provided key used to access the application's api
+        schema:
+          type: string
+      - name: assetType
+        in: query
+        description: Asset type to fetch compatible layouts for. Must provide originatorId if using
+        required: false
+        schema:
+          type: string
+      - name: originatorId
+        in: query
+        description: Originator id to fetch compatible layouts for. Must provide if using assetType query param
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: assetGroup
+        in: query
+        description: Name of asset group to fetch compatible layouts for
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of available layouts for the given asset type
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: array
+                xml: {}
+                items:
+                  type: string
+      deprecated: false
+  /external/secure/api/v2/portfolio/download/owned/{layout}:
+    get:
+      tags:
+      - Loan Tape V2
+      summary: Download the latest record of owned loan data by asset type and layout
+      parameters:
+      - name: layout
+        in: path
+        description: CSV layout available for the provided asset type
+        schema:
+          type: string
+      - name: assetType
+        in: query
+        description: Asset type to query assets for. Must provide originatorId if using
+        required: false
+        schema:
+          type: string
+      - name: originatorId
+        in: query
+        description: Originator id to query assets for. Must provide assetType if using assetType query param
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: assetGroup
+        in: query
+        description: Name of asset group to filter assets with
+        required: false
+        schema:
+          type: string
+      - name: apikey
+        in: header
+        description: Provided key used to access the application's api
+        schema:
+          type: string
+      responses:
+        '200':
+          description: CSV record of owned loan data based on the specified asset type and layout
+          headers: {}
+          content:
+            text/plain:
+              schema:
+                type: string
+                xml:
+                  name: String
+      deprecated: false
+components:
+  securitySchemes:
+    apikey:
+      type: apiKey
+      name: apikey
+      in: header

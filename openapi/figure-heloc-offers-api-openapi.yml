@@ -1,0 +1,373 @@
+openapi: 3.1.0
+info:
+  title: HELOC Inquiries Encryption HELOC Offers API
+  version: v1
+servers:
+- url: https://api.test.figure.com
+  description: Test environment
+- url: https://api.figure.com
+  description: Production environment
+security:
+- apikey: []
+tags:
+- name: HELOC Offers
+paths:
+  /products/heloc/pre-qualify/v2:
+    post:
+      tags:
+      - HELOC Offers
+      operationId: getHelocOffersV2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EncryptedHelocOfferRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+      parameters: null
+  /products/heloc/pre-qualify/v1:
+    post:
+      tags:
+      - HELOC Offers
+      summary: Request affiliate HELOC offers
+      description: Generate personalized HELOC offers for potential affiliate leads.
+      operationId: prequalifyHeloc
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HelocOfferRequest'
+        required: true
+      responses:
+        '408':
+          description: Request timeout (default timeout is 30s)
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AffiliateOfferResponse'
+        '400':
+          description: Incorrect credentials
+      parameters: null
+components:
+  schemas:
+    AffiliateOfferDto:
+      required:
+      - apr
+      - interestRate
+      - loanAmount
+      - monthlyPayment
+      - originationFee
+      - rateType
+      - term
+      type: object
+      properties:
+        term:
+          type: integer
+          description: Pay off period in months
+          format: int32
+          example: 120
+        rateType:
+          type: string
+          description: Fixed or variable
+          example: fixed
+        loanAmount:
+          type: number
+          description: Requested amount and/or max amount offered plus origination fee
+          example: 146860.0
+        interestRate:
+          type: number
+          description: Interest rate
+          example: 6.25
+        monthlyPayment:
+          type: number
+          description: Monthly payment on plan
+          example: 1648.95
+        apr:
+          type: number
+          description: Annual percentage rate
+          example: 6.25
+        originationFee:
+          type: number
+          description: Fee that will be added to loan amount
+          example: 7328
+      description: List of offer objects for approved requests
+    OptionalAddressRequest:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        street1:
+          type: string
+          description: Property street address
+          example: 3082 KENSINGTON CT SW
+        street2:
+          type: string
+          description: Property street continued
+        city:
+          type: string
+          description: Property city
+          example: ATLANTA
+        state:
+          type: string
+          description: 2 char US state
+          example: GA
+        zip:
+          type: string
+          description: 5 or 5+4 char US zip code
+          example: '30331'
+        type:
+          type: string
+          description: "Type: \n* `HOME` \n* `MAILING` \n* `SECONDARY` \n* `INVESTMENT`"
+          example: HOME
+          enum:
+          - HOME
+          - MAILING
+          - SECONDARY
+          - INVESTMENT
+          - UNRECOGNIZED
+        ownership:
+          type: string
+          description: "Ownership: \n* `SOLE` \n* `JOINT` \n* `TRUST` \n* `LLC` \n* `OTHER` \n* `UNKNOWN`"
+          example: SOLE
+          enum:
+          - UNKNOWN
+          - SOLE
+          - JOINT
+          - TRUST
+          - LLC
+          - OTHER
+          - UNRECOGNIZED
+        ownerLegalName:
+          type: string
+    AffiliateOfferResponse:
+      required:
+      - personalizedUrl
+      - product
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          description: Offers or No Offers
+          example: Offers
+        product:
+          type: string
+          description: Product type ex. HELOC
+          example: HELOC
+          enum:
+          - UNKNOWN_PRODUCT_TYPE
+          - HELOC
+          - LEASE_BACK
+          - PL
+          - CASHOUT_REFI
+          - STUDENT_LOAN_REFI
+          - MERLOC
+          - INVESTOR_PASSPORT
+          - BANK
+          - MARKETPLACE_AUCTION
+          - CSP
+          - BANK_CREDIT
+          - SERVICING
+          - PIGGYBACK
+          - APP_AFFILIATE
+          - PURCHASE_MORTGAGE
+          - APP_AFFILIATE_HELOC
+          - MORTGAGE
+          - CRYPTO_PL
+          - CRYPTO_HELOC
+          - DFS
+          - INVESTOR_PASSPORT_PROFILE
+          - HELOAN
+          - UNIVERSAL_PASSPORT
+          - PIGGYBACK_V2
+          - DSCR
+          - BUSINESS_ONBOARDING
+          - UNRECOGNIZED
+        offers:
+          type: array
+          description: List of offer objects for approved requests
+          items:
+            $ref: '#/components/schemas/AffiliateOfferDto'
+        personalizedUrl:
+          type: string
+          description: Link out to figure.com
+          example: https://test.figure.com/a/external/lead/?id={ATTEMPT_UUID}
+        cannedText:
+          type: string
+    HelocOfferRequest:
+      required:
+      - affiliateId
+      - loanPurpose
+      - privacyPolicyOptIn
+      - remarketingAllowed
+      - requestType
+      type: object
+      properties:
+        affiliateId:
+          type: string
+          description: This 36 char UUID is the API key
+          format: uuid
+          example: e5c722ec-eaf1-4cb1-8fcb-f2c16b31fade
+        firstName:
+          type: string
+          description: First name
+          example: Carlos
+        lastName:
+          type: string
+          description: Last name
+          example: Johnsontesth
+        suffix:
+          type: string
+          description: suffix
+          nullable: true
+          example: jr
+        email:
+          type: string
+          description: Email address
+          example: cj@test.com
+        address:
+          $ref: '#/components/schemas/OptionalAddressRequest'
+        leadId:
+          type: string
+          description: The lead's unique identifier
+        phone:
+          type: string
+          description: Phone number
+          example: '3109631497'
+        selfCreditRating:
+          type: string
+          description: "CreditProfileDescription: \n* `UNKNOWN_CREDIT` \n* `EXCELLENT` \n* `GOOD` \n* `FAIR` \n* `POOR`"
+          example: EXCELLENT
+          enum:
+          - UNKNOWN_CREDIT
+          - EXCELLENT
+          - GOOD
+          - FAIR
+          - POOR
+          - UNRECOGNIZED
+        requestType:
+          type: string
+          description: "RequestType: \n* `OFFERS` - returns offers\n* `PREQUAL` - returns status and url\n* `PREPOP` - bypasses prequalification and makes all fields optional"
+          example: OFFERS
+          enum:
+          - UNKNOWN_REQUEST
+          - OFFERS
+          - PREQUAL
+          - PREPOP
+          - LEAD
+          - UNRECOGNIZED
+        source:
+          type: string
+          deprecated: true
+        remarketingAllowed:
+          type: boolean
+          description: Based on affiliate agreement, determines whether Figure is able to remarket via email & SMS
+          default: true
+        dob:
+          type: string
+          description: Date of birth in YYYY-MM-DD format
+          format: date
+          example: 1956-01-01
+        fico:
+          type: integer
+          description: Estimated credit score
+          example: 740
+        amountToBorrow:
+          type: integer
+          description: Requested loan amount, not required but highly encouraged to get directed offers
+          example: 200000
+        currentMortgageBalances:
+          type: integer
+          description: Remaining mortgage balance.
+          example: 400000
+        campaignName:
+          type: string
+          description: Affiliate-provided campaign name
+          example: Affiliate Heloc Campaign
+        campaignSubSource:
+          type: string
+          description: Domain of site that generated that lead
+        ssn:
+          type: string
+          description: Social security number
+          example: '666489780'
+        employmentStatus:
+          type: string
+          description: "Not required but highly encouraged, used for prepop on registration page \nEmploymentStatus: \n* `EMPLOYED` \n* `UNEMPLOYED` \n* `SELF_EMPLOYED` \n* `MILITARY` \n* `RETIRED` \n* `UNKNOWN_STATUS`"
+          example: EMPLOYED
+          enum:
+          - UNKNOWN_STATUS
+          - EMPLOYED
+          - UNEMPLOYED
+          - SELF_EMPLOYED
+          - MILITARY
+          - RETIRED
+          - UNRECOGNIZED
+        householdIncome:
+          type: number
+          description: Current yearly household income
+          example: 200000.0
+        monthlyExpenses:
+          type: number
+          description: Estimated total monthly expenses, excluding mortgage payments
+          example: 1000.0
+        mailingAddress:
+          $ref: '#/components/schemas/OptionalAddressRequest'
+        loanPurpose:
+          type: string
+          description: "Not required but highly encouraged, used for prepop on registration page \nLoanPurpose: \n* `DEBT_CONSOLIDATION` \n* `HOME_IMPROVEMENT` \n* `TRAVEL` \n* `EDUCATION` \n* `HEALTH_OR_MEDICAL` \n* `CARING_FOR_FAMILY` \n* `RETIREMENT` \n* `MAJOR_PURCHASE` \n* `OTHER`"
+          example: EDUCATION
+          default: UNKNOWN_LOAN_PURPOSE
+          enum:
+          - UNKNOWN_LOAN_PURPOSE
+          - DEBT_CONSOLIDATION
+          - HOME_IMPROVEMENT
+          - TRAVEL
+          - EDUCATION
+          - HEALTH_OR_MEDICAL
+          - CARING_FOR_FAMILY
+          - RETIREMENT
+          - MAJOR_PURCHASE
+          - OTHER
+          - UNRECOGNIZED
+        privacyPolicyOptIn:
+          type: boolean
+          description: Determines if user accepted the Figure Privacy Policy or not
+          example: false
+          default: false
+        queryParams:
+          type: string
+          description: Append additional query parameters to applicant url. Only utm_id is supported currently.
+          nullable: true
+          example: utm_id=123456
+        propertyValue:
+          type: number
+          description: Estimate value of property. Required property attestation is true for affiliate profile
+          nullable: true
+          example: 1000000.0
+        monthlyMortgagePayment:
+          type: number
+          description: Monthly payment on mortgage. High recommended for attested property values so offers can be more accurate.
+          nullable: true
+          example: 1648.95
+    EncryptedHelocOfferRequest:
+      required:
+      - encrypted
+      type: object
+      properties:
+        encrypted:
+          type: string
+  securitySchemes:
+    apikey:
+      type: apiKey
+      name: apikey
+      in: header

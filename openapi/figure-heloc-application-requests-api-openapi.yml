@@ -1,0 +1,1969 @@
+openapi: 3.1.0
+info:
+  title: HELOC Inquiries Encryption HELOC application requests API
+  version: v1
+servers:
+- url: https://api.test.figure.com
+  description: Test environment
+- url: https://api.figure.com
+  description: Production environment
+security:
+- apikey: []
+tags:
+- name: HELOC application requests
+paths:
+  /products/heloc/v1/inquiry/{appUuid}/verify-liens:
+    put:
+      tags:
+      - HELOC application requests
+      summary: Verify liens for a HELOC inquiry
+      operationId: verifyInquiryLiens
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyLiensRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyLiensResponse'
+  /products/heloc/v1/inquiry/{appUuid}/select-property:
+    put:
+      tags:
+      - HELOC application requests
+      summary: Select matching property on HELOC inquiry where multiple properties were returned for a single address
+      operationId: selectProperty
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SelectMatchingPropertyRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SelectingMatchingPropertyResponse'
+  /products/heloc/v1/inquiry/{appUuid}/select-offer:
+    put:
+      tags:
+      - HELOC application requests
+      summary: Select an offer for a HELOC inquiry
+      operationId: selectInquiryOffer
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SelectOfferRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelectOfferResponse'
+  /products/heloc/v1/inquiry/{appUuid}/cancel:
+    put:
+      tags:
+      - HELOC application requests
+      summary: Cancel HELOC inquiry
+      operationId: cancelInquiry
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CancelInquiryRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CancelInquiryResponse'
+  /products/heloc/v1/inquiry/{appUuid}/asset-depletion:
+    put:
+      tags:
+      - HELOC application requests
+      summary: Add income and liability payoff to a HELOC inquiry
+      operationId: assetDepletion
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddIncomeAndLiabilityRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddIncomeResponse'
+  /products/heloc/v1/inquiry/{appUuid}/add-ssn:
+    put:
+      tags:
+      - HELOC application requests
+      summary: Add a borrower SSN to a HELOC inquiry
+      operationId: addInquirySsn
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddSsnRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddSsnResponse'
+  /products/heloc/v1/inquiry/{appUuid}/add-property-estimate:
+    put:
+      tags:
+      - HELOC application requests
+      summary: Add borrower property estimate to a HELOC inquiry
+      operationId: addInquiryPropertyEstimate
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddPropertyEstimateRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddPropertyEstimateResponse'
+  /products/heloc/v1/inquiry/{appUuid}/add-income:
+    put:
+      tags:
+      - HELOC application requests
+      summary: Add income to a HELOC inquiry
+      operationId: addInquiryIncome
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddIncomeRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddIncomeResponse'
+  /products/heloc/v1/inquiry/{appUuid}/repull-credit:
+    post:
+      tags:
+      - HELOC application requests
+      summary: Repull Credit for Inquiry
+      operationId: repullCredit
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RepullCreditForHelocInquiryRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RepullCreditForInquiryResponse'
+  /products/heloc/v1/inquiry/start:
+    post:
+      tags:
+      - HELOC application requests
+      summary: Starts a new inquiry for a HELOC application
+      operationId: startInquiry
+      parameters:
+      - name: User-Agent
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartInquiryRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartInquiryResponse'
+  /products/heloc/v1/lead/{appUuid}/reassign:
+    patch:
+      tags:
+      - HELOC application requests
+      summary: Reassign a HELOC lead to a different loan originator
+      operationId: reassignLead
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReassignLeadRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReassignLeadResponse'
+  /products/heloc/v1/inquiry/{appUuid}/attributions:
+    patch:
+      tags:
+      - HELOC application requests
+      summary: Update Attributions to a HELOC inquiry
+      operationId: updateInquiryAttributions
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateHelocInquiryAttributionsRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content: {}
+  /products/heloc/v1/inquiry/{appUuid}/properties:
+    get:
+      tags:
+      - HELOC application requests
+      summary: Fetch matching properties on HELOC inquiry where multiple properties were returned for a single address
+      operationId: fetchMatchingProperties
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MatchingPropertiesResponse'
+  /products/heloc/v1/inquiry/{appUuid}/direct-debt-payoff-offers:
+    get:
+      tags:
+      - HELOC application requests
+      summary: Fetch direct debt payoff details on HELOC inquiry if applicable
+      operationId: fetchDirectDebtPayoffDetails
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: accountId
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FetchDirectDebtPayoffDetailsResponse'
+  /products/heloc/v1/inquiry/{appUuid}/borrower-costs:
+    get:
+      tags:
+      - HELOC application requests
+      summary: Get borrower costs for an application
+      operationId: getBorrowerCosts
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: offerUuid
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: selectedOfferAmount
+        in: query
+        required: true
+        schema:
+          type: number
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BorrowerCostsResponse'
+  /products/heloc/v1/document/{appUuid}/list:
+    get:
+      tags:
+      - HELOC application requests
+      summary: List documents for an application
+      operationId: listDocuments
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentListResponse'
+  /products/heloc/v1/document/{appUuid}/download:
+    get:
+      tags:
+      - HELOC application requests
+      summary: Download all documents for an application
+      operationId: downloadAllDocuments
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+  /products/heloc/v1/document/{appUuid}/download/{documentUuid}:
+    get:
+      tags:
+      - HELOC application requests
+      summary: Download a document for an application
+      operationId: downloadDocument
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: documentUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+  /products/heloc/v1/details/{appUuid}:
+    get:
+      tags:
+      - HELOC application requests
+      summary: Fetch details about an application
+      operationId: fetchAppDetails
+      parameters:
+      - name: appUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - CONDITIONS
+          - FUNDING_REPORT
+          - BORROWER_DETAILS
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FetchHelocDetailsResponse'
+components:
+  schemas:
+    AddIncomeRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+        income:
+          $ref: '#/components/schemas/IncomeRequest'
+      required:
+      - income
+      - request
+    RepullCreditForHelocInquiryRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+      required:
+      - request
+    LicensesResponse:
+      properties:
+        lenderLicense:
+          $ref: '#/components/schemas/LicenseResponse'
+        loanOriginatorLicense:
+          $ref: '#/components/schemas/LicenseResponse'
+        brokerLicense:
+          $ref: '#/components/schemas/LicenseResponse'
+    StartInquiryRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+        applicant:
+          $ref: '#/components/schemas/ApplicantRequest'
+        property:
+          $ref: '#/components/schemas/PropertyRequest'
+        partnerDataRequest:
+          $ref: '#/components/schemas/PartnerDataRequest'
+        testVariantsRequest:
+          $ref: '#/components/schemas/TestVariantsRequest'
+        businessInfo:
+          $ref: '#/components/schemas/BusinessInfoRequest'
+      required:
+      - applicant
+      - property
+      - request
+    MatchingPropertyRequest:
+      properties:
+        propertyId:
+          type: string
+      required:
+      - propertyId
+    StartInquiryDetailsResponseData:
+      properties:
+        appUuid:
+          type: string
+          format: uuid
+      required:
+      - appUuid
+    ApplicantRequest:
+      properties:
+        name:
+          $ref: '#/components/schemas/NameRequest'
+        dob:
+          type: string
+          format: date
+        phone:
+          type: string
+          pattern: ^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$
+        email:
+          type: string
+          pattern: ^(?:[a-zA-Z0-9!#\$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#\$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$
+        ssn:
+          type: string
+          pattern: ^(([0-9]{9})|([0-9]{3}-[0-9]{2}-[0-9]{4}))$
+        homeAddress:
+          $ref: '#/components/schemas/USAddress'
+        income:
+          $ref: '#/components/schemas/IncomeRequest'
+      required:
+      - dob
+      - email
+      - homeAddress
+      - income
+      - name
+      - phone
+    AddIncomeAndLiabilityRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+        income:
+          $ref: '#/components/schemas/IncomeRequest'
+        liabilityPayoff:
+          $ref: '#/components/schemas/LiabilityPayoffRequest'
+      required:
+      - income
+      - request
+    MessageResponse:
+      properties:
+        level:
+          type: string
+        message:
+          type: string
+      required:
+      - level
+      - message
+    DocumentSummary:
+      properties:
+        documentUuid:
+          type: string
+        fileName:
+          type: string
+        docType:
+          type: string
+        contentType:
+          type: string
+      required:
+      - contentType
+      - docType
+      - documentUuid
+      - fileName
+    RepullCreditForInquiryResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+    SelectOfferResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+        appDetails:
+          $ref: '#/components/schemas/HelocDetailsResponseData'
+    PropertyRequest:
+      properties:
+        address:
+          $ref: '#/components/schemas/USAddress'
+        propertyType:
+          type: string
+          enum:
+          - UNKNOWN
+          - PRIMARY
+          - SECONDARY
+          - INVESTMENT
+        isListedForSale:
+          type: boolean
+        borrowerEstimatedValue:
+          type: number
+        liens:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyLienRequest'
+        ownershipType:
+          type: string
+          enum:
+          - UNKNOWN
+          - SOLE
+          - JOINT
+          - TRUST
+          - LLC
+          - OTHER
+      required:
+      - address
+      - isListedForSale
+      - propertyType
+    MatchingPropertyResponse:
+      properties:
+        id:
+          type: string
+        apn:
+          type: string
+        address:
+          $ref: '#/components/schemas/USAddress'
+        longitude:
+          type: number
+        latitude:
+          type: number
+      required:
+      - address
+      - id
+    VerifyLiensRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+        liens:
+          type: array
+          items:
+            $ref: '#/components/schemas/LienRequest'
+      required:
+      - liens
+      - request
+    BorrowerDetailsResponse:
+      properties:
+        primary:
+          $ref: '#/components/schemas/BorrowerResponse'
+        additionalSigners:
+          type: array
+          items:
+            $ref: '#/components/schemas/BorrowerResponse'
+      required:
+      - primary
+    SsnRequest:
+      properties:
+        ssn:
+          type: string
+          pattern: ^(([0-9]{9})|([0-9]{3}-[0-9]{2}-[0-9]{4}))$
+      required:
+      - ssn
+    UpdateHelocInquiryAttributionsRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+        attributions:
+          $ref: '#/components/schemas/InquiryAttributions'
+      required:
+      - attributions
+      - request
+    FundingTransactionResponse:
+      properties:
+        id:
+          type: string
+        amount:
+          type: number
+        initiatedAt:
+          type: string
+          format: date-time
+        effectiveDate:
+          type: string
+        paymentRail:
+          type: string
+          enum:
+          - ACH
+          - WIRE
+        status:
+          type: string
+          enum:
+          - PENDING
+          - SENT
+          - COMPLETE
+          - CANCELLED
+          - EXCEPTION
+          - RETURNED
+          - NOC
+          - REQUIRES_APPROVAL
+          - REJECTED
+        messageUuid:
+          type: string
+          format: uuid
+        sentAt:
+          type: string
+          format: date-time
+        batchingCategory:
+          type: string
+    PropertyDetailsResponse:
+      properties:
+        county:
+          type: string
+        propertyType:
+          type: string
+          enum:
+          - PRIMARY
+          - SECONDARY
+          - INVESTMENT
+        propertyUuid:
+          type: string
+          format: uuid
+        corelogicPropertyId:
+          type: string
+        lotSquareFeet:
+          type: integer
+          format: int32
+        propertyFloodZone:
+          type: string
+        landUseDescription:
+          type: string
+        landUseCode:
+          type: string
+        buildingGrossArea:
+          type: number
+        propertyAcres:
+          type: number
+    BorrowerResponse:
+      properties:
+        identityUuid:
+          type: string
+          format: uuid
+        email:
+          type: string
+        firstName:
+          type: string
+        middleName:
+          type: string
+        lastName:
+          type: string
+        suffix:
+          type: string
+        prefix:
+          type: string
+        dob:
+          type: string
+          format: date
+        address:
+          $ref: '#/components/schemas/USAddress'
+        phoneNumber:
+          type: string
+    StatusHistoryResponse:
+      properties:
+        overallStatus:
+          type: string
+        status:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - overallStatus
+      - status
+    UtmParametersResponse:
+      properties:
+        source:
+          type: string
+        medium:
+          type: string
+        campaign:
+          type: string
+        content:
+          type: string
+        term:
+          type: string
+    AssignedUserResponse:
+      properties:
+        userUuid:
+          type: string
+          format: uuid
+      required:
+      - userUuid
+    LoanOriginatorDataResponse:
+      properties:
+        loanOriginatorUuid:
+          type: string
+          format: uuid
+        brokerUuid:
+          type: string
+          format: uuid
+        externalId:
+          type: string
+        nmls:
+          type: string
+        companyNmls:
+          type: string
+        licenses:
+          $ref: '#/components/schemas/LicensesResponse'
+        companyDbaName:
+          type: string
+        email:
+          type: string
+    NotaryResponse:
+      properties:
+        type:
+          type: string
+          enum:
+          - NOT_APPLICABLE
+          - ELECTRONIC
+          - MANUAL
+        fee:
+          type: number
+        appointmentDate:
+          type: string
+          format: date-time
+        completedDate:
+          type: string
+          format: date-time
+    TestVariantResponse:
+      properties:
+        name:
+          type: string
+      required:
+      - name
+    PropertyEstimateRequest:
+      properties:
+        borrowerEstimatedValue:
+          type: number
+      required:
+      - borrowerEstimatedValue
+    MatchingPropertiesResponse:
+      properties:
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/MatchingPropertyResponse'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+      required:
+      - properties
+    BorrowerCostsResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+        costs:
+          $ref: '#/components/schemas/CostsResponse'
+    FundingTransactionReportResponse:
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FundingTransactionResponse'
+    TestVariantsRequest:
+      properties:
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestVariantRequest'
+      required:
+      - variants
+    CostsResponse:
+      properties:
+        fixedCosts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CostResponse'
+        dynamicCosts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CostResponse'
+        totalPaidByBorrower:
+          type: number
+    USAddress:
+      properties:
+        street1:
+          type: string
+          pattern: ^[a-zA-Z0-9\s\-\.']+$
+        street2:
+          type: string
+          pattern: ^[a-zA-Z0-9\s\-\.']+$
+        city:
+          type: string
+          pattern: ^[a-zA-Z\s\-']+$
+        state:
+          type: string
+          pattern: ^[A-Z]{2}$
+        zip:
+          type: string
+          pattern: ^[0-9]{5}(?:-[0-9]{4})?$
+      required:
+      - city
+      - state
+      - street1
+      - zip
+    AddPropertyEstimateRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+        propertyEstimate:
+          $ref: '#/components/schemas/PropertyEstimateRequest'
+      required:
+      - propertyEstimate
+      - request
+    InquiryAttributions:
+      properties:
+        utmParameters:
+          $ref: '#/components/schemas/UtmParametersRequest'
+        externalReferenceData:
+          $ref: '#/components/schemas/ExternalReferenceDataRequest'
+    FetchHelocDetailsResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/HelocDetailsResponseData'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+    PropertyValueResponse:
+      properties:
+        borrowerEstimatedValue:
+          type: number
+        propertyAvmValue:
+          type: number
+        preLoanCltv:
+          type: number
+        postLoanCltv:
+          type: number
+        preLoanAdjCltv:
+          type: number
+        postLoanAdjCltv:
+          type: number
+        postLoanAdjMinCltv:
+          type: number
+    ReassignLeadRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+          deprecated: true
+          description: This is no longer required and will be removed in a future release.
+        newLoanOriginatorUuid:
+          type: string
+      required:
+      - newLoanOriginatorUuid
+    SelectMatchingPropertyRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+        property:
+          $ref: '#/components/schemas/MatchingPropertyRequest'
+      required:
+      - property
+      - request
+    LicenseStateResponse:
+      properties:
+        type:
+          type: string
+          enum:
+          - UNKNOWN
+          - UNSPECIFIED
+          - FEDERAL_LICENSE
+          - CA_RMLA_STATE_LICENSE
+          - CA_CFL_STATE_LICENSE
+          - CA_DRE_STATE_LICENSE
+        uuid:
+          type: string
+          format: uuid
+        licenseNumber:
+          type: string
+        licenseName:
+          type: string
+        state:
+          type: string
+      required:
+      - type
+      - uuid
+    LienRequest:
+      properties:
+        lienUuid:
+          type: string
+        originationDate:
+          type: string
+          format: date
+        lenderName:
+          type: string
+          pattern: ^[a-zA-Z0-9\s\-']+$
+        originalBalance:
+          type: number
+        currentBalance:
+          type: number
+        monthlyPayment:
+          type: number
+      required:
+      - lenderName
+      - lienUuid
+      - originalBalance
+      - originationDate
+    PartnerDataRequest:
+      properties:
+        externalAppId:
+          type: string
+        externalReferenceId:
+          type: string
+        externalCustomerId:
+          type: string
+        utmParameters:
+          $ref: '#/components/schemas/UtmParametersRequest'
+    LiabilityResponse:
+      properties:
+        id:
+          type: string
+        rateType:
+          type: string
+          enum:
+          - VARIABLE
+          - FIXED
+        liabilitySubType:
+          type: string
+          enum:
+          - LEASE
+          - LOAN_SUB_TYPE
+          - FEDERAL
+          - PRIVATE
+          - HELOC
+          - LINE_OF_CREDIT
+          - FLEXIBLE_SPENDING
+          - CHARGE
+          - SECURED
+          - UNSECURED
+          - PURCHASE
+          - BUSINESS
+        lastDigitsOfAccountNumber:
+          type: string
+        monetaryBalance:
+          type: number
+        interestRatePercentage:
+          type: number
+        interestRatePercentageMax:
+          type: number
+        interestRatePercentageMin:
+          type: number
+        payOffStatus:
+          type: string
+          enum:
+          - MARKED_FOR_PAYOFF
+          - PAID_OFF
+          - PAYOFF_REQUESTED
+          - PAYOFF_FAILED
+          - PAYOFF_REVERSAL
+          - PAYOFF_REVERSAL_PROCESSING
+        creditorName:
+          type: string
+        liabilityType:
+          type: string
+          enum:
+          - AUTO
+          - PERSONAL
+          - FIGURE_SERVICING_HELOC
+          - HOME_IMPROVEMENT
+          - CREDIT_CARD
+          - MORTGAGE
+          - HELOC
+        reasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReasonResponse'
+        providesDtiCredit:
+          type: boolean
+        providesCltvCredit:
+          type: boolean
+        providesLienPositionCredit:
+          type: boolean
+      required:
+      - creditorName
+      - id
+      - monetaryBalance
+      - providesCltvCredit
+      - providesDtiCredit
+      - providesLienPositionCredit
+    SelectingMatchingPropertyResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+    LicenseResponse:
+      properties:
+        licenseHolder:
+          $ref: '#/components/schemas/LicenseHolderResponse'
+        stateLicense:
+          $ref: '#/components/schemas/LicenseStateResponse'
+    AddSsnResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+    UtmParametersRequest:
+      properties:
+        source:
+          type: string
+        medium:
+          type: string
+        campaign:
+          type: string
+        term:
+          type: string
+        content:
+          type: string
+    AddIncomeResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+    AddSsnRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+        applicant:
+          $ref: '#/components/schemas/SsnRequest'
+      required:
+      - applicant
+      - request
+    ThirdPartyIntegrationsResponse:
+      properties:
+        externalPartnerApplicationId:
+          type: string
+        externalPartnerReferenceId:
+          type: string
+        externalPartnerCustomerId:
+          type: string
+    LicenseHolderResponse:
+      properties:
+        type:
+          type: string
+          enum:
+          - UNKNOWN
+          - LENDER
+          - BROKER
+          - LOAN_OFFICER
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        nmls:
+          type: string
+      required:
+      - type
+      - uuid
+    AppDataResponse:
+      properties:
+        isInquiry:
+          type: boolean
+        isBridgeLoan:
+          type: boolean
+        startedAsInquiry:
+          type: boolean
+        autopay:
+          type: boolean
+        status:
+          type: string
+        overallStatus:
+          type: string
+        nextInquiryStep:
+          type: string
+          enum:
+          - UNKNOWN
+          - NO_OFFERS
+          - REFINANCE_OFFER
+          - OFFERS_AVAILABLE
+          - BORROWER_AUTH_REQUIRED
+          - BROKER_DOC_SIGNING_REQUIRED
+          - INQUIRY_COMPLETE
+          - INQUIRY_CLOSED
+          - INQUIRY_WITHDRAWN
+          - CREDIT_MATCH_REQUIRED
+          - MORE_ASSETS_REQUIRED
+          - LIEN_MATCHING_REQUIRED
+          - PROPERTY_VALUE_REQUIRED
+          - PAYOFF_REQUIRED
+          - UNFREEZE_CREDIT
+          - SELECT_PROPERTY
+        keyDates:
+          $ref: '#/components/schemas/KeyDatesResponse'
+        propertyAddress:
+          $ref: '#/components/schemas/USAddress'
+        statusReasons:
+          type: array
+          items:
+            type: string
+        ownershipType:
+          type: string
+          enum:
+          - UNKNOWN
+          - SOLE
+          - JOINT
+          - TRUST
+          - LLC
+          - OTHER
+        financingPurpose:
+          type: string
+          enum:
+          - UNKNOWN
+          - DEBT_CONSOLIDATION
+          - HOME_IMPROVEMENT
+          - MAJOR_PURCHASE
+          - TRAVEL
+          - EDUCATION
+          - HEALTH_MEDICAL
+          - CARING_FOR_FAMILY
+          - RETIREMENT
+          - SMALL_BUSINESS
+          - HOME_IMPROVEMENT_SMALL_BUSINESS
+          - SOLAR_ENERGY_EFFICIENT_INSTALLATION
+          - OTHER
+        propertyLiens:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyLienResponse'
+        underwriting:
+          $ref: '#/components/schemas/UnderwritingResponse'
+        propertyValue:
+          $ref: '#/components/schemas/PropertyValueResponse'
+        manualNotary:
+          $ref: '#/components/schemas/ManualNotaryResponse'
+          deprecated: true
+          description: use notary instead
+        notary:
+          $ref: '#/components/schemas/NotaryResponse'
+        costs:
+          $ref: '#/components/schemas/CostsResponse'
+        ddpDetails:
+          $ref: '#/components/schemas/DdpDetails'
+        utmParameters:
+          $ref: '#/components/schemas/UtmParametersResponse'
+        statusHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusHistoryResponse'
+        propertyDetails:
+          $ref: '#/components/schemas/PropertyDetailsResponse'
+        borrowerDetails:
+          $ref: '#/components/schemas/BorrowerDetailsResponse'
+        assignedUsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssignedUserResponse'
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConditionResponse'
+        demographics:
+          $ref: '#/components/schemas/DemographicsResponse'
+        thirdPartyIntegrations:
+          $ref: '#/components/schemas/ThirdPartyIntegrationsResponse'
+        fundingTransactionReport:
+          $ref: '#/components/schemas/FundingTransactionReportResponse'
+        businessInfo:
+          $ref: '#/components/schemas/BusinessInfoResponse'
+      required:
+      - autopay
+      - isBridgeLoan
+      - isInquiry
+      - overallStatus
+      - startedAsInquiry
+      - status
+    HelocDetailsResponseData:
+      properties:
+        organization:
+          type: string
+        appUuid:
+          type: string
+          format: uuid
+        appShortId:
+          type: string
+        borrowerAppLink:
+          type: string
+        appData:
+          $ref: '#/components/schemas/AppDataResponse'
+        loanOriginatorData:
+          $ref: '#/components/schemas/LoanOriginatorDataResponse'
+        testVariants:
+          $ref: '#/components/schemas/TestVariantsResponse'
+      required:
+      - appData
+      - appUuid
+      - organization
+      - testVariants
+    CancelInquiryResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+    CostResponse:
+      properties:
+        type:
+          type: string
+          enum:
+          - NOTARY_FEE
+          - RECORDING_TAX
+          - RECORDING_FEE
+          - TITLE_FEE
+          - BPO_FEE
+          - DRIVE_BY_VALUATION_FEE
+          - ONSITE_APPRAISAL_FEE
+        borrowerPaidAmount:
+          type: number
+      required:
+      - type
+    UnderwritingSelectedOfferResponse:
+      properties:
+        offerUuid:
+          type: string
+          format: uuid
+        loanAmount:
+          type: number
+        drawAmount:
+          type: number
+        estimatedMonthlyPayment:
+          type: number
+        rate:
+          type: number
+        primeRate:
+          type: number
+        term:
+          type: integer
+          format: int32
+        rateType:
+          type: string
+          enum:
+          - UNKNOWN
+          - FIXED
+          - VARIABLE
+        originationFeePercent:
+          type: number
+        originationFee:
+          type: number
+          deprecated: true
+          description: use originationFeePercent instead
+        selectedDiscounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfferDiscountResponse'
+        creditLine:
+          type: number
+        originationFeeAmount:
+          type: number
+      required:
+      - drawAmount
+      - estimatedMonthlyPayment
+      - loanAmount
+      - offerUuid
+      - originationFee
+      - originationFeePercent
+      - primeRate
+      - rate
+      - rateType
+      - term
+    OfferDiscountResponse:
+      properties:
+        type:
+          type: string
+        rateDiscountAmount:
+          type: number
+      required:
+      - rateDiscountAmount
+      - type
+    ConditionResponse:
+      properties:
+        active:
+          type: boolean
+        name:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastUpdateDate:
+          type: string
+          format: date-time
+      required:
+      - active
+      - name
+    NameRequest:
+      properties:
+        prefix:
+          type: string
+          pattern: ^[a-zA-Z0-9\s\-']+$
+        firstName:
+          type: string
+          pattern: ^[a-zA-Z0-9\s\-']+$
+        middleName:
+          type: string
+          pattern: ^[a-zA-Z0-9\s\-']+$
+        lastName:
+          type: string
+          pattern: ^[a-zA-Z0-9\s\-']+$
+        suffix:
+          type: string
+      required:
+      - firstName
+      - lastName
+    FetchDirectDebtPayoffDetailsResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/DirectDebtPayoffDetailsResponse'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+      required:
+      - data
+    ReasonResponse:
+      properties:
+        unavailableReason:
+          type: string
+          enum:
+          - NO_MATCHED_TRADELINE
+          - NO_MATCHED_LIEN
+          - NO_STATE_ELIGIBILITY
+          - ABOVE_MAXIMUM_BALANCE
+          - EXCLUDED_BY_CREDIT_SCORE
+          - EXCLUDED_BY_CHARGED_OFF_ACCOUNT
+          - EXCLUDED_BY_CREDIT_CARD_TOTAL_ACCOUNT_DTI
+          - EXCLUDED_BY_NEXT_MIN_PAYMENT
+          - EXCLUDED_BY_MONETARY_BALANCE
+          - EXCLUDED_BY_MONETARY_ORIGINAL_LOAN_AMOUNT
+          - EXCLUDED_BY_PAYMENT_CAPABILITY
+          - EXCLUDED_BY_SUBSCRIPTION_CAPABILITY
+          - EXCLUDED_BY_SENSITIVE_ACCOUNT_CAPABILITY
+          - SEASONING_REQUIREMENTS_NOT_MET
+          - OTHER
+        description:
+          type: string
+    UnderwritingOfferResponse:
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        minAmount:
+          type: number
+        maxAmount:
+          type: number
+        rate:
+          type: number
+        primeRate:
+          type: number
+        term:
+          type: integer
+          format: int32
+        rateType:
+          type: string
+          enum:
+          - UNKNOWN
+          - FIXED
+          - VARIABLE
+        originationFeePercent:
+          type: number
+        discounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfferDiscountResponse'
+        preDiscountOriginationFee:
+          type: number
+      required:
+      - maxAmount
+      - minAmount
+      - originationFeePercent
+      - primeRate
+      - rate
+      - rateType
+      - term
+      - uuid
+    ExistingLiabilitiesResponse:
+      properties:
+        eligible:
+          type: array
+          items:
+            $ref: '#/components/schemas/LiabilityResponse'
+        ineligible:
+          type: array
+          items:
+            $ref: '#/components/schemas/LiabilityResponse'
+      required:
+      - eligible
+      - ineligible
+    VerifyLiensResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+    ReassignLeadResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+    DemographicsResponse:
+      properties:
+        hispanicOrLatinoEthnicityType:
+          type: boolean
+        ethnicityRefusal:
+          type: boolean
+        otherEthnicityDescription:
+          type: string
+        genderRefusal:
+          type: boolean
+        raceRefusal:
+          type: boolean
+        raceAsianAdditionalDescription:
+          type: string
+        racePacificIslanderAdditionalDescription:
+          type: string
+        ethnicityCollectedBasedOnVisualObservationOrSurname:
+          type: boolean
+        genderCollectedBasedOnVisualObservationOrName:
+          type: boolean
+        raceCollectedBasedOnVisualObservationOrSurname:
+          type: boolean
+        tribeName:
+          type: string
+        notHispanicOrLatino:
+          type: boolean
+        ethnicityOriginTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - CUBAN
+            - MEXICAN
+            - PUERTO_RICAN
+            - OTHER
+        genderTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - BOTH_MALE_AND_FEMALE
+            - FEMALE
+            - MALE
+        raceTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - AMERICAN_INDIAN_OR_ALASKA_NATIVE
+            - ASIAN
+            - BLACK_OR_AFRICAN_AMERICAN
+            - NATIVE_HAWAIIAN_OR_OTHER_ISLANDER
+            - WHITE
+        raceDesignationTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - ASIAN_INDIAN
+            - CHINESE
+            - FILIPINO
+            - GUAMANIAN_OR_CHAMORRO
+            - JAPANESE
+            - KOREAN
+            - NATIVE_HAWAIIAN
+            - OTHER_ASIAN
+            - OTHER_PACIFIC_ISLANDER
+            - SAMOAN
+            - VIETNAMESE
+    SelectOfferRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+        offer:
+          $ref: '#/components/schemas/OfferRequest'
+      required:
+      - offer
+      - request
+    DocumentListResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentSummary'
+      required:
+      - documents
+    PropertyLienRequest:
+      properties:
+        originationDate:
+          type: string
+          format: date
+        originalBalance:
+          type: number
+        lenderName:
+          type: string
+        currentBalance:
+          type: number
+        monthlyPayment:
+          type: number
+      required:
+      - originalBalance
+      - originationDate
+    UnderwritingResponse:
+      properties:
+        decision:
+          type: string
+        minOfferAmount:
+          type: number
+        maxOfferAmount:
+          type: number
+        minOfferRate:
+          type: number
+        maxOfferRate:
+          type: number
+        offers:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnderwritingOfferResponse'
+        selectedOffer:
+          $ref: '#/components/schemas/UnderwritingSelectedOfferResponse'
+        softCredit:
+          $ref: '#/components/schemas/UnderwritingCreditResponse'
+        hardCredit:
+          $ref: '#/components/schemas/UnderwritingCreditResponse'
+        monthlyIncome:
+          type: number
+        statedMonthlyIncome:
+          type: number
+        preLoanDti:
+          type: number
+        postLoanDti:
+          type: number
+        statedDti:
+          type: number
+        coDeedStatus:
+          type: string
+          enum:
+          - INITIAL
+          - IN_PROGRESS
+          - COMPLETE
+        floodInsured:
+          type: boolean
+        homeownersInsured:
+          type: boolean
+        employmentType:
+          type: string
+        homeForSaleMlsResponse:
+          type: boolean
+        homeForSaleBorrowerAttested:
+          type: boolean
+        creditAsOfDate:
+          type: string
+          format: date
+        pricingAsOfDate:
+          type: string
+          format: date
+        guidelineVersion:
+          type: string
+    DirectDebtPayoffDetailsResponse:
+      properties:
+        organization:
+          type: string
+        appUuid:
+          type: string
+          format: uuid
+        offers:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnderwritingOfferResponse'
+      required:
+      - appUuid
+      - offers
+      - organization
+    StartInquiryResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/StartInquiryDetailsResponseData'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+    ManualNotaryResponse:
+      properties:
+        manualNotaryDate:
+          type: string
+          format: date-time
+        manualNotaryFee:
+          type: number
+    TestVariantsResponse:
+      properties:
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestVariantResponse'
+      required:
+      - variants
+    OfferRequest:
+      properties:
+        offerUuid:
+          type: string
+        selectedOfferAmount:
+          type: number
+        selectedDiscounts:
+          type: array
+          items:
+            type: string
+        selectedAccountsToPayoff:
+          type: array
+          items:
+            type: string
+      required:
+      - offerUuid
+      - selectedAccountsToPayoff
+      - selectedDiscounts
+      - selectedOfferAmount
+    CancelInquiryRequest:
+      properties:
+        request:
+          $ref: '#/components/schemas/CommonHelocPayloadRequest'
+      required:
+      - request
+    UnderwritingCreditResponse:
+      properties:
+        provider:
+          type: string
+          enum:
+          - EXPERIAN
+          - TRANS_UNION
+        score:
+          type: integer
+          format: int32
+        timestamp:
+          type: string
+          format: date-time
+    TestVariantRequest:
+      properties:
+        name:
+          type: string
+      required:
+      - name
+    ExternalReferenceDataRequest:
+      properties:
+        externalApplicationId:
+          type: string
+        externalReferenceId:
+          type: string
+        externalCustomerId:
+          type: string
+    BusinessInfoResponse:
+      properties:
+        entityName:
+          type: string
+        entityType:
+          type: string
+          enum:
+          - SOLE_PROPRIETORSHIP
+          - SINGLE_OWNER_LLC
+          - PARTNERSHIP
+          - MULTI_OWNER_LLC
+          - S_CORP
+          - PARTNERSHIP_OR_LLC
+        ownershipPercentage:
+          type: number
+        totalMonthlyRevenue:
+          type: number
+        ein:
+          type: string
+        stateOfIncorporation:
+          type: string
+        address:
+          $ref: '#/components/schemas/USAddress'
+      required:
+      - entityName
+      - entityType
+    PropertyLienResponse:
+      properties:
+        lienUuid:
+          type: string
+          format: uuid
+        originationDate:
+          type: string
+        lenderName:
+          type: string
+        originalBalance:
+          type: number
+        currentBalance:
+          type: number
+        monthlyPayment:
+          type: number
+        lienPosition:
+          type: integer
+          format: int32
+      required:
+      - lienUuid
+    IncomeRequest:
+      properties:
+        employmentType:
+          type: string
+          enum:
+          - UNKNOWN
+          - OTHER
+          - SELF_EMPLOYED
+          - FULL_TIME
+          - PART_TIME
+          - RETIRED
+          - UNEMPLOYED
+          - ALIMONY
+          - CHILD_SUPPORT
+          - PUBLIC_ASSISTANCE_PROGRAM
+          - SEPARATE_MAINTENANCE_PAYMENTS
+        grossAnnualIncome:
+          type: number
+        annualRetirementIncome:
+          type: number
+        annualInvestmentIncome:
+          type: number
+        annualBusinessIncome:
+          type: number
+        savingsAmount:
+          type: number
+        otherAnnualIncome:
+          type: number
+      required:
+      - employmentType
+      - grossAnnualIncome
+    DdpDetails:
+      properties:
+        paidLiabilityPayoffAmount:
+          type: number
+        totalLiabilityPayoffAmount:
+          type: number
+        liabilityPayoffAllocatedAmountDtiImpacting:
+          type: number
+        liabilityPayoffAllocatedAmountNonDtiImpacting:
+          type: number
+        lienPositionAfterPayoff:
+          type: integer
+          format: int32
+        existingLiabilities:
+          $ref: '#/components/schemas/ExistingLiabilitiesResponse'
+    BusinessInfoRequest:
+      properties:
+        entityName:
+          type: string
+        entityType:
+          type: string
+          enum:
+          - SOLE_PROPRIETORSHIP
+          - SINGLE_OWNER_LLC
+          - PARTNERSHIP
+          - MULTI_OWNER_LLC
+          - S_CORP
+          - PARTNERSHIP_OR_LLC
+        ownershipPercentage:
+          type: number
+        totalMonthlyRevenue:
+          type: number
+        ein:
+          type: string
+        stateOfIncorporation:
+          type: string
+          pattern: ^[A-Za-z]{2}$
+        address:
+          $ref: '#/components/schemas/USAddress'
+    CommonHelocPayloadRequest:
+      properties:
+        loanOriginatorUuid:
+          type: string
+        async:
+          type: boolean
+          deprecated: true
+          description: Will be removed from all requests in a future release. This is no longer an option on some requests. Async will be the only option.
+      required:
+      - async
+      - loanOriginatorUuid
+    LiabilityPayoffRequest:
+      properties:
+        selectedAccountsToPayoff:
+          type: array
+          items:
+            type: string
+      required:
+      - selectedAccountsToPayoff
+    AddPropertyEstimateResponse:
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageResponse'
+    KeyDatesResponse:
+      properties:
+        createdDate:
+          type: string
+          format: date-time
+        expirationDate:
+          type: string
+          format: date-time
+        rescissionEndDate:
+          type: string
+          format: date-time
+        signingDate:
+          type: string
+          format: date-time
+        completedDate:
+          type: string
+          format: date-time
+        canceledDate:
+          type: string
+          format: date-time
+        declinedDate:
+          type: string
+          format: date-time
+        summaryDisclosureDate:
+          type: string
+          format: date-time
+        productAgreementESignedTimestamp:
+          type: string
+          format: date-time
+        firstPaymentDueDate:
+          type: string
+          format: date-time
+        expectedPayoffDate:
+          type: string
+          format: date-time
+        lastStatusUpdateDate:
+          type: string
+          format: date-time
+  securitySchemes:
+    apikey:
+      type: apiKey
+      name: apikey
+      in: header

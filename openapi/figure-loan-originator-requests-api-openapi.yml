@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: HELOC Inquiries Encryption Loan Originator requests API
+  version: v1
+servers:
+- url: https://api.test.figure.com
+  description: Test environment
+- url: https://api.figure.com
+  description: Production environment
+security:
+- apikey: []
+tags:
+- name: Loan Originator requests
+paths:
+  /management/v1/loan-originator:
+    get:
+      tags:
+      - Loan Originator requests
+      summary: Fetch loan originators by email or with pagination
+      operationId: fetchLoanOriginators
+      parameters:
+      - name: email
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FetchLoanOriginatorsResponse'
+components:
+  schemas:
+    LoanOriginatorData:
+      properties:
+        loanOriginatorId:
+          type: string
+          format: uuid
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        middleName:
+          type: string
+        nmls:
+          type: string
+        organization:
+          type: string
+        phoneNumber:
+          type: string
+        brokerCompany:
+          $ref: '#/components/schemas/BrokerCompanyData'
+      required:
+      - email
+      - firstName
+      - lastName
+      - loanOriginatorId
+      - organization
+    BrokerCompanyData:
+      properties:
+        brokerId:
+          type: string
+          format: uuid
+        brokerName:
+          type: string
+        brokerNmls:
+          type: string
+      required:
+      - brokerId
+      - brokerName
+      - brokerNmls
+    FetchLoanOriginatorsResponse:
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/LoanOriginatorData'
+        total:
+          type: integer
+          format: int64
+        count:
+          type: integer
+          format: int32
+      required:
+      - count
+      - data
+      - total
+  securitySchemes:
+    apikey:
+      type: apiKey
+      name: apikey
+      in: header
