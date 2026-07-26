@@ -1,0 +1,28 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/ + https://docs.figure.com/getting-started
+format: json                 # plain JSON errors; not RFC 9457 application/problem+json
+summary: >-
+  Error responses derived from the published OpenAPI plus the Getting Started guide.
+  The Pre-qualification API declares 400 and 408 responses. The Getting Started guide
+  states requests missing required headers (apikey, User-Agent) are rejected.
+problems:
+  - status: 400
+    title: Bad request
+    detail: Invalid or malformed request payload.
+    source_operation: openapi/figure-heloc-pre-qualification-openapi-original.yml#prequalifyHeloc
+  - status: 408
+    title: Request timeout
+    detail: The pre-qualification request timed out before completing.
+    source_operation: openapi/figure-heloc-pre-qualification-openapi-original.yml#getHelocOffersV2
+  - status: 401
+    title: Unauthorized
+    detail: Request missing or presenting an invalid apikey header.
+    source: https://docs.figure.com/getting-started
+  - status: 400
+    title: Missing required header
+    detail: Requests without the required apikey and User-Agent headers are rejected.
+    source: https://docs.figure.com/getting-started
+notes:
+  - HELOC Inquiries and Portfolio Manager specs do not enumerate 4xx/5xx response bodies.
+  - No application/problem+json (RFC 9457) media type is declared by any spec.

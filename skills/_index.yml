@@ -1,0 +1,12 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/figure-heloc-inquiries-openapi-original.yml
+skills:
+  - file: figure-start-heloc-inquiry.md
+    name: Start a HELOC inquiry and select an offer
+    api: openapi/figure-heloc-inquiries-openapi-original.yml
+    operations: [startInquiry, addInquirySsn, addInquiryIncome, addInquiryPropertyEstimate, verifyInquiryLiens, fetchMatchingProperties, selectProperty, selectInquiryOffer, getBorrowerCosts]
+  - file: figure-retrieve-application-documents.md
+    name: Retrieve HELOC application details and documents
+    api: openapi/figure-heloc-inquiries-openapi-original.yml
+    operations: [fetchAppDetails, listDocuments, downloadDocument, downloadAllDocuments]

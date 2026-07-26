@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.figure.com/getting-started
+versioning:
+  scheme: uri-path
+  current: v1
+  notes: >-
+    Products version independently in the URI path. HELOC Inquiries is v1;
+    Pre-qualification exposes v1 and v2 (/products/heloc/pre-qualify/v2);
+    Portfolio Manager exposes v1 and v2 (/external/secure/api/v2/...).
+  docs: https://docs.figure.com/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation/sunset policy (RFC 8594) was found. Older versions coexist alongside new ones.
+sla:
+  url: null
+  uptime_target: null
+status_page: https://status.figure.com
+deprecated_operations: []

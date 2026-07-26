@@ -1,0 +1,28 @@
+{
+  "provider": "figure",
+  "sources": [
+    "figure-encryption-api-openapi.yml",
+    "figure-heloc-application-requests-api-openapi.yml",
+    "figure-heloc-offers-api-openapi.yml",
+    "figure-loan-originator-requests-api-openapi.yml",
+    "figure-loan-tape-v1-api-openapi.yml",
+    "figure-loan-tape-v2-api-openapi.yml",
+    "figure-payment-history-v1-api-openapi.yml",
+    "figure-payment-history-v2-api-openapi.yml"
+  ],
+  "outputs": [
+    "figure-encryption-api-openapi.yml",
+    "figure-heloc-application-requests-api-openapi.yml",
+    "figure-heloc-offers-api-openapi.yml",
+    "figure-loan-originator-requests-api-openapi.yml",
+    "figure-loan-tape-v1-api-openapi.yml",
+    "figure-loan-tape-v2-api-openapi.yml",
+    "figure-payment-history-v1-api-openapi.yml",
+    "figure-payment-history-v2-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

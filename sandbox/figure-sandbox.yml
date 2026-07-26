@@ -1,0 +1,53 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.figure.com/heloc-inquiries/test-cases
+summary: >-
+  Figure Partner APIs expose a dedicated Test environment (https://api.test.figure.com)
+  separate from Production (https://api.figure.com). There are no test-vs-live key
+  prefixes; the environment is selected by base host and by the API key issued for
+  that environment. Test outcomes (approve / decline / manual review / credit states /
+  FICO bands / fraud) are driven by magic values in the borrower payload — primarily
+  the borrower Last Name and SSN — documented in the HELOC Inquiries test-case guide.
+  Save these values verbatim; never invent test data.
+environments:
+  - name: test
+    base_url: https://api.test.figure.com
+    description: Test environment; onboarding UUIDs (loanOriginatorUuid) differ from production
+  - name: production
+    base_url: https://api.figure.com
+key_separation:
+  scheme: environment-scoped-api-key
+  notes: >-
+    Authentication is a per-environment apikey header. The loanOriginatorUuid values
+    are different in the test and production environments and are assigned during onboarding.
+magic_test_values:
+  happy_path:
+    last_name_suffix: TestH        # e.g. "TestCaseFourTestH" — any name ending in TestH
+    property_address: 1066 Arbol Way, San Jose, CA 95126
+    annual_income: 220000
+    primary_ssn: 111-11-1111
+    additional_signer_ssn: 111-11-1112
+  unhappy_path:
+    - scenario: Asset depletion
+      trigger: { annual_income: 25000 }
+    - scenario: Manual SSN review
+      trigger: { ssn: '666489780', dob: '07-11-1922' }
+    - scenario: Locked credit
+      trigger: { last_name: TestL }
+    - scenario: Frozen credit
+      trigger: { last_name: TestN }
+    - scenario: Bankruptcy
+      trigger: { last_name: c84b7cb7-33c8-472b-a4cf-172bf62fc4f7 }
+    - scenario: Fraud detection
+      trigger: { ssn: 111-11-1999 }
+    - scenario: Low FICO (630)
+      trigger: { last_name: test9 }
+    - scenario: High FICO (849)
+      trigger: { last_name: c049379a-0849-41ab-a8f0-2715a3a8be25 }
+    - scenario: Low FICO (529)
+      trigger: { last_name: testo }
+    - scenario: No AVM (property value over $400K, no automated valuation)
+      trigger: { property_address: 1140 E Mohawk Dr, Meadview, AZ 86444 }
+notes:
+  - The StartInquiryRequest schema carries a TestVariantsRequest object used to steer test outcomes.
+  - Test values are for the Test environment only and must never be sent to production.

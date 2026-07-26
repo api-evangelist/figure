@@ -1,0 +1,14 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Figure HELOC Inquiries
+  version: 1.0.0
+extends: openapi/figure-heloc-inquiries-openapi-original.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: figure
+      x-apievangelist-product: HELOC Inquiries
+      x-apievangelist-auth: apikey header (per-environment)
+      x-apievangelist-webhooks: asyncapi/figure-webhooks.yml
+      x-apievangelist-sandbox: sandbox/figure-sandbox.yml
+      x-apievangelist-conventions: conventions/figure-conventions.yml

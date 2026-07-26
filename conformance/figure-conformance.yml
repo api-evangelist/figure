@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/ + https://docs.figure.com/getting-started
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: No oauth2 security scheme; APIs use an apikey header.
+  - id: oidc
+    conforms: false
+  - id: api-key-auth
+    conforms: true
+    evidence: securitySchemes apikey (type apiKey, in header) on HELOC Inquiries; apikey header documented for all products.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No application/problem+json media type declared; errors return plain JSON.
+  - id: openapi-3
+    conforms: true
+    evidence: Published OpenAPI 3.1.0 (HELOC Inquiries) and 3.0.1 (Pre-qualification, Portfolio Manager).
+  - id: webhooks
+    conforms: true
+    evidence: Documented HTTPS webhook delivery with retry/backoff (see asyncapi/figure-webhooks.yml).
+  - id: jwe-encryption
+    conforms: true
+    evidence: Optional JWE/RSA payload encryption for requests and responses (JWE Data Protection docs).
+  - id: rest
+    conforms: true
+    evidence: Resource-oriented URLs, standard HTTP verbs and status codes (per Portfolio Manager description).
+notes: >-
+  Derived from published specs and docs. No third-party compliance certifications
+  (SOC 2 / ISO 27001 / PCI) were found on a public trust center, so no Compliance
+  pointer is emitted.

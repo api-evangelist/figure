@@ -1,0 +1,47 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.figure.com/webhooks/getting-started
+type: Webhooks
+spec_type: none                 # Figure documents webhooks but publishes no AsyncAPI document
+summary: >-
+  Figure Partner APIs push HTTPS webhooks to partner-configured endpoints as HELOC
+  inquiries and applications progress. Endpoints are registered during onboarding.
+  Delivery requires an HTTPS receiver returning 200 OK; failed deliveries are retried
+  with exponential backoff. Payloads may optionally be RSA-encrypted with a
+  partner-supplied public key (RSA is the only supported scheme at this time). No
+  HMAC/signature verification header is documented.
+delivery:
+  transport: https-post
+  success_response: 200 OK
+  retry: exponential-backoff
+  subscription: partner endpoint configured during onboarding
+  encryption:
+    optional: true
+    scheme: RSA
+    notes: Partner provides a public key; Figure encrypts the payload, partner decrypts with the private key.
+  custom_payloads: supported when standard schemas do not fit the integration
+categories:
+  - name: Inquiry webhooks
+    description: Fired as a HELOC inquiry progresses through processing phases.
+    payload_fields:
+      - applicationUuid
+      - loanOriginatorNmls
+      - productType
+      - eventTimestamp
+      - nextInquiryStepType
+      - organization
+    events:
+      - OFFERS_AVAILABLE
+  - name: Application webhooks
+    description: Fired as a HELOC application advances through its lifecycle.
+    payload_fields:
+      - applicationUuid
+      - loanOriginatorNmls
+      - productType
+      - eventTimestamp
+      - status
+      - overallStatus
+      - organization
+notes:
+  - Event enumeration in the docs is partial; OFFERS_AVAILABLE is the named inquiry event.
+  - No published AsyncAPI document exists; this catalogs the documented webhook surface only.

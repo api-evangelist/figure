@@ -1,0 +1,52 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/figure-heloc-inquiries-openapi-original.yml
+summary: >-
+  Entity-relationship graph derived from the HELOC Inquiries OpenAPI (93 schemas).
+  The central entity is the HELOC Application/Inquiry, identified by appUuid, which
+  aggregates borrower, property, income, offer, and document sub-entities. A Loan
+  Originator (identified by loanOriginatorUuid, assigned at onboarding) owns leads.
+entities:
+  - name: Inquiry
+    key: appUuid
+    description: A HELOC application inquiry; the root aggregate created by startInquiry.
+    relationships:
+      - { type: has_one, target: Applicant, via: applicant }
+      - { type: has_one, target: Property, via: property }
+      - { type: has_many, target: Income, via: income }
+      - { type: has_many, target: Lien, via: liens }
+      - { type: has_many, target: Offer, via: offers }
+      - { type: has_many, target: Document, via: documents }
+      - { type: has_one, target: InquiryAttributions, via: attributions }
+      - { type: belongs_to, target: LoanOriginator, via: loanOriginatorUuid }
+  - name: Applicant
+    description: Borrower / additional signer on the inquiry.
+    relationships:
+      - { type: has_one, target: USAddress, via: address }
+  - name: Property
+    description: Subject property for the HELOC; may resolve to multiple matching properties for one address.
+    relationships:
+      - { type: has_one, target: USAddress, via: address }
+      - { type: has_many, target: Lien, via: liens }
+  - name: Offer
+    description: HELOC offer returned by underwriting and selected by the borrower.
+    relationships:
+      - { type: has_one, target: OfferDiscount, via: discount }
+  - name: Document
+    key: documentUuid
+    description: Application document available for listing and download.
+    relationships:
+      - { type: belongs_to, target: Inquiry, via: appUuid }
+  - name: LoanOriginator
+    key: loanOriginatorUuid
+    description: Loan officer (NMLS) that owns leads and makes API requests; assigned at onboarding.
+    relationships:
+      - { type: belongs_to, target: BrokerCompany, via: brokerCompany }
+      - { type: has_many, target: License, via: licenses }
+  - name: Income
+    description: Borrower income and liability payoff records added to an inquiry.
+  - name: Lien
+    description: Existing lien on the property, verified during the inquiry.
+notes:
+  - id-reference fields: appUuid (Inquiry/Application), documentUuid (Document), loanOriginatorUuid (LoanOriginator).
+  - Shared value objects: USAddress, CommonHelocPayloadRequest, MessageResponse.

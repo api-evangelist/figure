@@ -1,0 +1,12 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Figure Portfolio Manager
+  version: 1.0.0
+extends: openapi/figure-portfolio-manager-openapi-original.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: figure
+      x-apievangelist-product: Portfolio Manager (Reporting / Loan Tape)
+      x-apievangelist-auth: apikey header (per-environment)
+      x-apievangelist-data-model: data-model/figure-data-model.yml

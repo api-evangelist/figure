@@ -1,0 +1,32 @@
+# Figure
+
+> Figure is a fintech lender and blockchain-native capital marketplace. Its Partner
+> APIs let affiliates and originators run the HELOC (home equity line of credit)
+> lifecycle — pre-qualification, inquiry, offer selection, documents — and let asset
+> holders pull loan-tape and payment-history reports. APIs authenticate with an apikey
+> header, front a Kong gateway, and support optional JWE/RSA payload encryption.
+
+## APIs
+- [HELOC Inquiries](https://docs.figure.com/heloc-inquiries/api): Manage the full HELOC inquiry lifecycle — start inquiry, add SSN/income/property, verify liens, select property and offer, fetch costs and documents (base https://api.figure.com).
+- [HELOC Pre-qualification](https://docs.figure.com/heloc-pre-qualification/api): Non-licensed affiliate HELOC offer pre-qualification (v1 and v2).
+- [Portfolio Manager](https://docs.figure.com/portfolio-manager/api): Query and download current and historical owned/pledged loan-tape and payment-history reports.
+
+## Specs
+- [HELOC Inquiries OpenAPI](https://docs.figure.com/api-directory/heloc-inquiries-openapi.yaml)
+- [HELOC Pre-qualification OpenAPI](https://docs.figure.com/api-directory/heloc-pre-qualification-openapi.yaml)
+- [Portfolio Manager OpenAPI](https://docs.figure.com/api-directory/portfolio-manager-openapi.yaml)
+
+## Docs
+- [Developer portal](https://docs.figure.com/)
+- [Getting started](https://docs.figure.com/getting-started)
+- [Webhooks](https://docs.figure.com/webhooks/getting-started)
+- [JWE data protection](https://docs.figure.com/jwe-data-protection/intro)
+- [HELOC Inquiries test cases](https://docs.figure.com/heloc-inquiries/test-cases)
+- [Status page](https://status.figure.com)
+
+## Company
+- [Figure website](https://www.figure.com)
+- [Affiliates & APIs](https://www.figure.com/partner-heloc/affiliates-and-apis/)
+- [Blog](https://www.figure.com/blog/)
+- [Terms of service](https://www.figure.com/terms/)
+- [Privacy policy](https://www.figure.com/privacy/)

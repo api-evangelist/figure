@@ -1,0 +1,57 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.figure.com/getting-started
+summary: >-
+  Cross-cutting request/response semantics for the Figure Partner APIs, captured from
+  the Getting Started guide and derived from the published OpenAPI. Auth is a single
+  apikey header; payloads may be optionally JWE/RSA-encrypted end to end. There is no
+  documented idempotency-key contract.
+authentication:
+  style: api-key
+  header: apikey
+  required_headers:
+    - apikey          # the supplied API key; requests without it are rejected
+    - User-Agent      # required on every request
+  optional_headers:
+    - name: X-Encrypt-Response
+      value: 'true'
+      effect: response body is returned encrypted with the partner public key
+  see: authentication/figure-authentication.yml
+encryption:
+  request:
+    optional: true
+    scheme: RSA / JWE
+    key: encrypt request payloads with Figure's public key
+    helper: POST /encryption/v1/encrypt (operationId encryptPayload) for partners who cannot encrypt client-side
+  response:
+    optional: true
+    trigger_header: 'X-Encrypt-Response: true'
+  docs: https://docs.figure.com/jwe-data-protection/intro
+idempotency:
+  supported: false
+  notes: No idempotency-key header or parameter is documented in the Getting Started guide or OpenAPI.
+pagination:
+  style: query-params
+  evidence: fetchLoanOriginators (GET /management/v1/loan-originator) supports pagination or email lookup
+  notes: Pagination parameters are per-operation; no global cursor envelope documented.
+versioning:
+  scheme: uri-path
+  examples:
+    - /products/heloc/v1/...
+    - /products/heloc/pre-qualify/v2
+    - /external/secure/api/v2/portfolio/...
+  see: lifecycle/figure-lifecycle.yml
+request_tracing:
+  header: x-kong-request-id
+  notes: Figure fronts the APIs with a Kong gateway; a Kong request id is exposed on responses.
+resource_identifiers:
+  application: appUuid (path parameter on most HELOC operations)
+  loan_originator: loanOriginatorUuid (assigned at onboarding; differs per environment and per loan officer)
+error_envelope:
+  format: json
+  notes: >-
+    Errors return JSON; the Pre-qualification API documents 400 and 408 responses.
+    No RFC 9457 application/problem+json media type is declared. See errors/figure-problem-types.yml.
+rate_limit_signaling:
+  documented: false
+  gateway: Kong
