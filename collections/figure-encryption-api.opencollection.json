@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "HELOC Inquiries Encryption API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Encryption",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Encrypt a JSON payload using Figure's public key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.test.figure.com/encryption/v1/encrypt",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Encrypt a JSON payload using Figure's public key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

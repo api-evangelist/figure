@@ -2,36 +2,83 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: openapi/figure-heloc-inquiries-openapi-original.yml
-summary: >-
-  No official hosted/remote MCP server was found for Figure. This is a CANDIDATE tool
-  list derived one-to-one from the HELOC Inquiries OpenAPI operations. Tools mirror
-  real operationIds; auth is the apikey header.
+summary: No official hosted/remote MCP server was found for Figure. This is a CANDIDATE tool list derived
+  one-to-one from the HELOC Inquiries OpenAPI operations. Tools mirror real operationIds; auth is the
+  apikey header.
 server:
   name: figure
   transport: http
-  url: null            # no published MCP endpoint
+  url: null
 auth:
   type: apiKey
   header: apikey
 tools:
-  - { name: start_inquiry, description: Start a new HELOC application inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#startInquiry' }
-  - { name: add_inquiry_ssn, description: Add a borrower SSN to a HELOC inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#addInquirySsn' }
-  - { name: add_inquiry_income, description: Add income to a HELOC inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#addInquiryIncome' }
-  - { name: add_inquiry_property_estimate, description: Add a borrower property estimate to a HELOC inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#addInquiryPropertyEstimate' }
-  - { name: asset_depletion, description: Add income and liability payoff to a HELOC inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#assetDepletion' }
-  - { name: verify_inquiry_liens, description: Verify liens for a HELOC inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#verifyInquiryLiens' }
-  - { name: fetch_matching_properties, description: Fetch matching properties for an inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#fetchMatchingProperties' }
-  - { name: select_property, description: Select the matching property on an inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#selectProperty' }
-  - { name: repull_credit, description: Repull credit for an inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#repullCredit' }
-  - { name: fetch_direct_debt_payoff_details, description: Fetch direct debt payoff details for an inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#fetchDirectDebtPayoffDetails' }
-  - { name: get_borrower_costs, description: Get borrower costs for an application, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#getBorrowerCosts' }
-  - { name: select_inquiry_offer, description: Select an offer for a HELOC inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#selectInquiryOffer' }
-  - { name: cancel_inquiry, description: Cancel a HELOC inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#cancelInquiry' }
-  - { name: update_inquiry_attributions, description: Update attributions on a HELOC inquiry, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#updateInquiryAttributions' }
-  - { name: reassign_lead, description: Reassign a HELOC lead to a different loan originator, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#reassignLead' }
-  - { name: fetch_app_details, description: Fetch details about an application, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#fetchAppDetails' }
-  - { name: list_documents, description: List documents for an application, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#listDocuments' }
-  - { name: download_document, description: Download a single application document, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#downloadDocument' }
-  - { name: download_all_documents, description: Download all documents for an application, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#downloadAllDocuments' }
-  - { name: fetch_loan_originators, description: Fetch loan originators by email or with pagination, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#fetchLoanOriginators' }
-  - { name: encrypt_payload, description: Encrypt a JSON payload using Figure's public key, source_operation: 'openapi/figure-heloc-inquiries-openapi-original.yml#encryptPayload' }
+- name: start_inquiry
+  description: Start a new HELOC application inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#startInquiry
+- name: add_inquiry_ssn
+  description: Add a borrower SSN to a HELOC inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#addInquirySsn
+- name: add_inquiry_income
+  description: Add income to a HELOC inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#addInquiryIncome
+- name: add_inquiry_property_estimate
+  description: Add a borrower property estimate to a HELOC inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#addInquiryPropertyEstimate
+- name: asset_depletion
+  description: Add income and liability payoff to a HELOC inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#assetDepletion
+- name: verify_inquiry_liens
+  description: Verify liens for a HELOC inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#verifyInquiryLiens
+- name: fetch_matching_properties
+  description: Fetch matching properties for an inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#fetchMatchingProperties
+- name: select_property
+  description: Select the matching property on an inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#selectProperty
+- name: repull_credit
+  description: Repull credit for an inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#repullCredit
+- name: fetch_direct_debt_payoff_details
+  description: Fetch direct debt payoff details for an inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#fetchDirectDebtPayoffDetails
+- name: get_borrower_costs
+  description: Get borrower costs for an application
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#getBorrowerCosts
+- name: select_inquiry_offer
+  description: Select an offer for a HELOC inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#selectInquiryOffer
+- name: cancel_inquiry
+  description: Cancel a HELOC inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#cancelInquiry
+- name: update_inquiry_attributions
+  description: Update attributions on a HELOC inquiry
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#updateInquiryAttributions
+- name: reassign_lead
+  description: Reassign a HELOC lead to a different loan originator
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#reassignLead
+- name: fetch_app_details
+  description: Fetch details about an application
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#fetchAppDetails
+- name: list_documents
+  description: List documents for an application
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#listDocuments
+- name: download_document
+  description: Download a single application document
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#downloadDocument
+- name: download_all_documents
+  description: Download all documents for an application
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#downloadAllDocuments
+- name: fetch_loan_originators
+  description: Fetch loan originators by email or with pagination
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#fetchLoanOriginators
+- name: encrypt_payload
+  description: Encrypt a JSON payload using Figure's public key
+  source_operation: openapi/figure-heloc-inquiries-openapi-original.yml#encryptPayload
+deployment:
+  mode: none
+  verified: derived
+  tools: 21
+  checked: '2026-08-12'
+  source: catalog MCP census

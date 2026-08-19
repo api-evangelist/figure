@@ -1,0 +1,166 @@
+{
+  "item": [
+    {
+      "id": "b4c351d6-8798-4834-9f9f-351e0ccc0567",
+      "name": "Loan Originator requests",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70fc8f7d-aea0-4372-ab9b-4f9cb5c1fb99",
+          "name": "Fetch loan originators by email or with pagination",
+          "request": {
+            "name": "Fetch loan originators by email or with pagination",
+            "description": {},
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "loan-originator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3294bf46-a0a7-4306-b81c-5407d7eac488",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "loan-originator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4122,\n  \"data\": [\n    {\n      \"email\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"loanOriginatorId\": \"08f2ed86-5b74-5c48-2b02-3548973e53b8\",\n      \"organization\": \"string\",\n      \"middleName\": \"string\",\n      \"nmls\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"brokerCompany\": {\n        \"brokerId\": \"0b5c5699-67bf-cce2-1e1a-291a7e891ca6\",\n        \"brokerName\": \"string\",\n        \"brokerNmls\": \"string\"\n      }\n    },\n    {\n      \"email\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"loanOriginatorId\": \"d6e29d80-6822-2514-0df5-db00585f5d98\",\n      \"organization\": \"string\",\n      \"middleName\": \"string\",\n      \"nmls\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"brokerCompany\": {\n        \"brokerId\": \"d73d74e8-5344-a1fc-27ba-558e5aca7e19\",\n        \"brokerName\": \"string\",\n        \"brokerNmls\": \"string\"\n      }\n    }\n  ],\n  \"total\": 5796\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.test.figure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b2f24d6c-92cf-456d-a897-2ab196dfec01",
+    "name": "HELOC Inquiries Encryption Loan Originator requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

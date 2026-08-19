@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "HELOC Inquiries Encryption Payment History V2 API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment History V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download the record of payments for owned loans by asset type and report date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/external/secure/api/v2/portfolio/download/owned/payment-history",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "query",
+                "description": "Asset type to query assets for. Must provide originatorId if using"
+              },
+              {
+                "name": "originatorId",
+                "value": "",
+                "type": "query",
+                "description": "Originator id to query assets for. Must provide assetType if using assetType query param"
+              },
+              {
+                "name": "assetGroup",
+                "value": "",
+                "type": "query",
+                "description": "Name of asset group to filter assets with"
+              },
+              {
+                "name": "reportDate",
+                "value": "",
+                "type": "query",
+                "description": "Cutoff date of requested payment history"
+              },
+              {
+                "name": "ownsPayments",
+                "value": "",
+                "type": "query",
+                "description": "Only show payments received during ownership of loan"
+              }
+            ]
+          },
+          "docs": "Download the record of payments for owned loans by asset type and report date"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

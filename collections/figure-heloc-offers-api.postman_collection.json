@@ -1,0 +1,356 @@
+{
+  "item": [
+    {
+      "id": "71a4ef48-b687-452b-812d-b923ed789343",
+      "name": "HELOC Offers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a3879a0-5511-46b7-b6f5-74f0123caaa9",
+          "name": "get Heloc Offers V2",
+          "request": {
+            "name": "get Heloc Offers V2",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "pre-qualify",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"encrypted\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5958fb6-b81e-4788-9a23-cc6e754adb0a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "pre-qualify",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"encrypted\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea5980a9-5a68-4646-ab99-6c89e001060c",
+          "name": "Request affiliate HELOC offers",
+          "request": {
+            "name": "Request affiliate HELOC offers",
+            "description": {
+              "content": "Generate personalized HELOC offers for potential affiliate leads.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "pre-qualify",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"affiliateId\": \"<uuid>\",\n  \"loanPurpose\": \"UNKNOWN_LOAN_PURPOSE\",\n  \"privacyPolicyOptIn\": false,\n  \"remarketingAllowed\": true,\n  \"requestType\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"suffix\": \"<string>\",\n  \"email\": \"<string>\",\n  \"address\": {\n    \"uuid\": \"<uuid>\",\n    \"street1\": \"<string>\",\n    \"street2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"type\": \"<string>\",\n    \"ownership\": \"<string>\",\n    \"ownerLegalName\": \"<string>\"\n  },\n  \"leadId\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"selfCreditRating\": \"<string>\",\n  \"source\": \"<string>\",\n  \"dob\": \"<date>\",\n  \"fico\": \"<integer>\",\n  \"amountToBorrow\": \"<integer>\",\n  \"currentMortgageBalances\": \"<integer>\",\n  \"campaignName\": \"<string>\",\n  \"campaignSubSource\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"employmentStatus\": \"<string>\",\n  \"householdIncome\": \"<number>\",\n  \"monthlyExpenses\": \"<number>\",\n  \"mailingAddress\": {\n    \"uuid\": \"<uuid>\",\n    \"street1\": \"<string>\",\n    \"street2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"type\": \"<string>\",\n    \"ownership\": \"<string>\",\n    \"ownerLegalName\": \"<string>\"\n  },\n  \"queryParams\": \"<string>\",\n  \"propertyValue\": \"<number>\",\n  \"monthlyMortgagePayment\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a7a082f5-29c5-4693-989d-7d90c68febde",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "pre-qualify",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"affiliateId\": \"e5c722ec-eaf1-4cb1-8fcb-f2c16b31fade\",\n  \"loanPurpose\": \"EDUCATION\",\n  \"privacyPolicyOptIn\": false,\n  \"remarketingAllowed\": true,\n  \"requestType\": \"OFFERS\",\n  \"firstName\": \"Carlos\",\n  \"lastName\": \"Johnsontesth\",\n  \"suffix\": \"jr\",\n  \"email\": \"cj@test.com\",\n  \"address\": {\n    \"uuid\": \"19644bbe-2080-898d-c96b-cd5ddbf4e615\",\n    \"street1\": \"3082 KENSINGTON CT SW\",\n    \"street2\": \"string\",\n    \"city\": \"ATLANTA\",\n    \"state\": \"GA\",\n    \"zip\": \"30331\",\n    \"type\": \"HOME\",\n    \"ownership\": \"SOLE\",\n    \"ownerLegalName\": \"string\"\n  },\n  \"leadId\": \"<string>\",\n  \"phone\": \"3109631497\",\n  \"selfCreditRating\": \"EXCELLENT\",\n  \"source\": \"<string>\",\n  \"dob\": \"1956-01-01\",\n  \"fico\": 740,\n  \"amountToBorrow\": 200000,\n  \"currentMortgageBalances\": 400000,\n  \"campaignName\": \"Affiliate Heloc Campaign\",\n  \"campaignSubSource\": \"<string>\",\n  \"ssn\": \"666489780\",\n  \"employmentStatus\": \"EMPLOYED\",\n  \"householdIncome\": 200000,\n  \"monthlyExpenses\": 1000,\n  \"mailingAddress\": {\n    \"uuid\": \"3083b502-77a0-239c-e858-a58b12b2870a\",\n    \"street1\": \"3082 KENSINGTON CT SW\",\n    \"street2\": \"string\",\n    \"city\": \"ATLANTA\",\n    \"state\": \"GA\",\n    \"zip\": \"30331\",\n    \"type\": \"HOME\",\n    \"ownership\": \"SOLE\",\n    \"ownerLegalName\": \"string\"\n  },\n  \"queryParams\": \"utm_id=123456\",\n  \"propertyValue\": 1000000,\n  \"monthlyMortgagePayment\": 1648.95\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"personalizedUrl\": \"https://test.figure.com/a/external/lead/?id={ATTEMPT_UUID}\",\n  \"product\": \"HELOC\",\n  \"status\": \"Offers\",\n  \"offers\": [\n    {\n      \"apr\": 6.25,\n      \"interestRate\": 6.25,\n      \"loanAmount\": 146860,\n      \"monthlyPayment\": 1648.95,\n      \"originationFee\": 7328,\n      \"rateType\": \"fixed\",\n      \"term\": 120\n    },\n    {\n      \"apr\": 6.25,\n      \"interestRate\": 6.25,\n      \"loanAmount\": 146860,\n      \"monthlyPayment\": 1648.95,\n      \"originationFee\": 7328,\n      \"rateType\": \"fixed\",\n      \"term\": 120\n    }\n  ],\n  \"cannedText\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ef6153c-f938-4d51-8510-49b64b3e577e",
+              "name": "Incorrect credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "pre-qualify",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"affiliateId\": \"e5c722ec-eaf1-4cb1-8fcb-f2c16b31fade\",\n  \"loanPurpose\": \"EDUCATION\",\n  \"privacyPolicyOptIn\": false,\n  \"remarketingAllowed\": true,\n  \"requestType\": \"OFFERS\",\n  \"firstName\": \"Carlos\",\n  \"lastName\": \"Johnsontesth\",\n  \"suffix\": \"jr\",\n  \"email\": \"cj@test.com\",\n  \"address\": {\n    \"uuid\": \"19644bbe-2080-898d-c96b-cd5ddbf4e615\",\n    \"street1\": \"3082 KENSINGTON CT SW\",\n    \"street2\": \"string\",\n    \"city\": \"ATLANTA\",\n    \"state\": \"GA\",\n    \"zip\": \"30331\",\n    \"type\": \"HOME\",\n    \"ownership\": \"SOLE\",\n    \"ownerLegalName\": \"string\"\n  },\n  \"leadId\": \"<string>\",\n  \"phone\": \"3109631497\",\n  \"selfCreditRating\": \"EXCELLENT\",\n  \"source\": \"<string>\",\n  \"dob\": \"1956-01-01\",\n  \"fico\": 740,\n  \"amountToBorrow\": 200000,\n  \"currentMortgageBalances\": 400000,\n  \"campaignName\": \"Affiliate Heloc Campaign\",\n  \"campaignSubSource\": \"<string>\",\n  \"ssn\": \"666489780\",\n  \"employmentStatus\": \"EMPLOYED\",\n  \"householdIncome\": 200000,\n  \"monthlyExpenses\": 1000,\n  \"mailingAddress\": {\n    \"uuid\": \"3083b502-77a0-239c-e858-a58b12b2870a\",\n    \"street1\": \"3082 KENSINGTON CT SW\",\n    \"street2\": \"string\",\n    \"city\": \"ATLANTA\",\n    \"state\": \"GA\",\n    \"zip\": \"30331\",\n    \"type\": \"HOME\",\n    \"ownership\": \"SOLE\",\n    \"ownerLegalName\": \"string\"\n  },\n  \"queryParams\": \"utm_id=123456\",\n  \"propertyValue\": 1000000,\n  \"monthlyMortgagePayment\": 1648.95\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb3ea3d6-55aa-4dfb-892f-c847d5d8ab71",
+              "name": "Request timeout (default timeout is 30s)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "pre-qualify",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"affiliateId\": \"e5c722ec-eaf1-4cb1-8fcb-f2c16b31fade\",\n  \"loanPurpose\": \"EDUCATION\",\n  \"privacyPolicyOptIn\": false,\n  \"remarketingAllowed\": true,\n  \"requestType\": \"OFFERS\",\n  \"firstName\": \"Carlos\",\n  \"lastName\": \"Johnsontesth\",\n  \"suffix\": \"jr\",\n  \"email\": \"cj@test.com\",\n  \"address\": {\n    \"uuid\": \"19644bbe-2080-898d-c96b-cd5ddbf4e615\",\n    \"street1\": \"3082 KENSINGTON CT SW\",\n    \"street2\": \"string\",\n    \"city\": \"ATLANTA\",\n    \"state\": \"GA\",\n    \"zip\": \"30331\",\n    \"type\": \"HOME\",\n    \"ownership\": \"SOLE\",\n    \"ownerLegalName\": \"string\"\n  },\n  \"leadId\": \"<string>\",\n  \"phone\": \"3109631497\",\n  \"selfCreditRating\": \"EXCELLENT\",\n  \"source\": \"<string>\",\n  \"dob\": \"1956-01-01\",\n  \"fico\": 740,\n  \"amountToBorrow\": 200000,\n  \"currentMortgageBalances\": 400000,\n  \"campaignName\": \"Affiliate Heloc Campaign\",\n  \"campaignSubSource\": \"<string>\",\n  \"ssn\": \"666489780\",\n  \"employmentStatus\": \"EMPLOYED\",\n  \"householdIncome\": 200000,\n  \"monthlyExpenses\": 1000,\n  \"mailingAddress\": {\n    \"uuid\": \"3083b502-77a0-239c-e858-a58b12b2870a\",\n    \"street1\": \"3082 KENSINGTON CT SW\",\n    \"street2\": \"string\",\n    \"city\": \"ATLANTA\",\n    \"state\": \"GA\",\n    \"zip\": \"30331\",\n    \"type\": \"HOME\",\n    \"ownership\": \"SOLE\",\n    \"ownerLegalName\": \"string\"\n  },\n  \"queryParams\": \"utm_id=123456\",\n  \"propertyValue\": 1000000,\n  \"monthlyMortgagePayment\": 1648.95\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.test.figure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9e0594fe-224d-45ad-b7f6-98937527b8a5",
+    "name": "HELOC Inquiries Encryption HELOC Offers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,468 @@
+{
+  "item": [
+    {
+      "id": "9a3440cf-65b7-46c4-9207-9e35d2af93c0",
+      "name": "Payment History V1",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "174a8e10-00ff-42c3-a56a-2ada3c039867",
+          "name": "Download the latest record of payments for owned loans",
+          "request": {
+            "name": "Download the latest record of payments for owned loans",
+            "description": {},
+            "url": {
+              "path": [
+                "external",
+                "secure",
+                "api",
+                "v1",
+                "portfolio",
+                "download",
+                "owned",
+                "payment-history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ownsPayments",
+                  "value": "<boolean>",
+                  "description": "Only show payments received during ownership of loan"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Provided key used to access the application's api",
+                "key": "apikey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d446e868-92e0-48b7-b612-3b93652e72cf",
+              "name": "CSV of payments for owned loans",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external",
+                    "secure",
+                    "api",
+                    "v1",
+                    "portfolio",
+                    "download",
+                    "owned",
+                    "payment-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ownsPayments",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Provided key used to access the application's api",
+                    "key": "apikey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1aa4d4a9-8d7c-43d3-9725-da5bf133cf5b",
+          "name": "Download the record of payments for owned loans by asset type and report date",
+          "request": {
+            "name": "Download the record of payments for owned loans by asset type and report date",
+            "description": {},
+            "url": {
+              "path": [
+                "external",
+                "secure",
+                "api",
+                "v1",
+                "portfolio",
+                "download",
+                "owned",
+                "payment-history",
+                ":assetType",
+                ":reportDate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ownsPayments",
+                  "value": "<boolean>",
+                  "description": "Only show payments received during ownership of loan"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetType"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<date>",
+                  "key": "reportDate",
+                  "description": "Cutoff date of requested payment history"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Provided key used to access the application's api",
+                "key": "apikey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "517db940-6b48-4872-9164-d322e990b397",
+              "name": "CSV of payments for owned loans by asset type and report date",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external",
+                    "secure",
+                    "api",
+                    "v1",
+                    "portfolio",
+                    "download",
+                    "owned",
+                    "payment-history",
+                    ":assetType",
+                    ":reportDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ownsPayments",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetType"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "reportDate",
+                      "description": "Cutoff date of requested payment history"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Provided key used to access the application's api",
+                    "key": "apikey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84fbfb92-f802-42c5-ba5a-f421532f41a3",
+          "name": "Download the record of payments for owned loans by asset type between report start date and end date",
+          "request": {
+            "name": "Download the record of payments for owned loans by asset type between report start date and end date",
+            "description": {},
+            "url": {
+              "path": [
+                "external",
+                "secure",
+                "api",
+                "v1",
+                "portfolio",
+                "download",
+                "owned",
+                "payment-history",
+                ":assetType",
+                ":reportStartDate",
+                ":reportEndDate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ownsPayments",
+                  "value": "<boolean>",
+                  "description": "Only show payments received during ownership of loan"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetType"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<date>",
+                  "key": "reportStartDate",
+                  "description": "Start cutoff date of requested payment history"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<date>",
+                  "key": "reportEndDate",
+                  "description": "End cutoff date of requested payment history"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Provided key used to access the application's api",
+                "key": "apikey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1622a36-72a6-4339-b269-4e8945a5dc15",
+              "name": "CSV of payments for owned loans by asset type between report start date and end date",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "external",
+                    "secure",
+                    "api",
+                    "v1",
+                    "portfolio",
+                    "download",
+                    "owned",
+                    "payment-history",
+                    ":assetType",
+                    ":reportStartDate",
+                    ":reportEndDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ownsPayments",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetType"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "reportStartDate",
+                      "description": "Start cutoff date of requested payment history"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "reportEndDate",
+                      "description": "End cutoff date of requested payment history"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Provided key used to access the application's api",
+                    "key": "apikey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.test.figure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1105c3d1-ea1d-4063-a7cb-2e85a1d79259",
+    "name": "HELOC Inquiries Encryption Payment History V1 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

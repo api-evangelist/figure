@@ -1,0 +1,2273 @@
+{
+  "item": [
+    {
+      "id": "0e6beb7b-fa25-48f7-9a62-ea01aab9d77f",
+      "name": "HELOC application requests",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cefe8821-0938-43fe-b2ad-b135ea8d6e33",
+          "name": "Verify liens for a HELOC inquiry",
+          "request": {
+            "name": "Verify liens for a HELOC inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "verify-liens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"liens\": [\n    {\n      \"lenderName\": \"<string>\",\n      \"lienUuid\": \"<string>\",\n      \"originalBalance\": \"<number>\",\n      \"originationDate\": \"<date>\",\n      \"currentBalance\": \"<number>\",\n      \"monthlyPayment\": \"<number>\"\n    },\n    {\n      \"lenderName\": \"<string>\",\n      \"lienUuid\": \"<string>\",\n      \"originalBalance\": \"<number>\",\n      \"originationDate\": \"<date>\",\n      \"currentBalance\": \"<number>\",\n      \"monthlyPayment\": \"<number>\"\n    }\n  ],\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3fbbc1b5-733b-41aa-adfe-f3a5b4f72b4d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "verify-liens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"liens\": [\n    {\n      \"lenderName\": \" F \",\n      \"lienUuid\": \"string\",\n      \"originalBalance\": 7314.065410540551,\n      \"originationDate\": \"1983-07-03\",\n      \"currentBalance\": 3728.317306875072,\n      \"monthlyPayment\": 4705.301662024051\n    },\n    {\n      \"lenderName\": \"F j labJre\",\n      \"lienUuid\": \"string\",\n      \"originalBalance\": 1847.2840939852742,\n      \"originationDate\": \"2000-02-12\",\n      \"currentBalance\": 9980.83901778045,\n      \"monthlyPayment\": 2312.6278969914347\n    }\n  ],\n  \"request\": {\n    \"async\": true,\n    \"loanOriginatorUuid\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15609760-28ec-43e5-98b9-0319d12836c9",
+          "name": "Select matching property on HELOC inquiry where multiple properties were returned for a single address",
+          "request": {
+            "name": "Select matching property on HELOC inquiry where multiple properties were returned for a single address",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "select-property"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"property\": {\n    \"propertyId\": \"<string>\"\n  },\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df424a0f-8d58-4229-9aaf-d29336bf0518",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "select-property"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"property\": {\n    \"propertyId\": \"string\"\n  },\n  \"request\": {\n    \"async\": false,\n    \"loanOriginatorUuid\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43ec412a-fb61-4589-afdb-2208e23e2394",
+          "name": "Select an offer for a HELOC inquiry",
+          "request": {
+            "name": "Select an offer for a HELOC inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "select-offer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offer\": {\n    \"offerUuid\": \"<string>\",\n    \"selectedAccountsToPayoff\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"selectedDiscounts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"selectedOfferAmount\": \"<number>\"\n  },\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df301672-e7a4-44cf-a298-af08ae750fed",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "select-offer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offer\": {\n    \"offerUuid\": \"string\",\n    \"selectedAccountsToPayoff\": [\n      \"string\",\n      \"string\"\n    ],\n    \"selectedDiscounts\": [\n      \"string\",\n      \"string\"\n    ],\n    \"selectedOfferAmount\": 1758.2277605752072\n  },\n  \"request\": {\n    \"async\": false,\n    \"loanOriginatorUuid\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ],\n  \"appDetails\": {\n    \"appData\": {\n      \"autopay\": true,\n      \"isBridgeLoan\": true,\n      \"isInquiry\": false,\n      \"overallStatus\": \"string\",\n      \"startedAsInquiry\": false,\n      \"status\": \"string\",\n      \"nextInquiryStep\": \"PROPERTY_VALUE_REQUIRED\",\n      \"keyDates\": {\n        \"createdDate\": \"2013-12-26T23:52:56.237Z\",\n        \"expirationDate\": \"1984-04-04T16:45:16.817Z\",\n        \"rescissionEndDate\": \"1961-10-02T14:33:55.786Z\",\n        \"signingDate\": \"2011-07-24T19:48:21.552Z\",\n        \"completedDate\": \"1987-10-22T02:34:49.019Z\",\n        \"canceledDate\": \"1985-03-31T13:50:41.040Z\",\n        \"declinedDate\": \"1961-12-01T17:13:50.876Z\",\n        \"summaryDisclosureDate\": \"1950-02-26T01:02:39.554Z\",\n        \"productAgreementESignedTimestamp\": \"2013-07-15T23:31:07.672Z\",\n        \"firstPaymentDueDate\": \"1964-01-10T04:59:14.828Z\",\n        \"expectedPayoffDate\": \"1952-07-13T17:38:07.246Z\",\n        \"lastStatusUpdateDate\": \"1947-04-11T05:38:06.310Z\"\n      },\n      \"propertyAddress\": {\n        \"city\": \"TBK\\n\\fuuNN\",\n        \"state\": \"GC\",\n        \"street1\": \"'f4oz cZt\",\n        \"zip\": \"98523-7885\",\n        \"street2\": \"lTz492 T\"\n      },\n      \"statusReasons\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ownershipType\": \"UNKNOWN\",\n      \"financingPurpose\": \"HEALTH_MEDICAL\",\n      \"propertyLiens\": [\n        {\n          \"lienUuid\": \"9057c70d-b072-6a98-a3cb-1931baff36a8\",\n          \"originationDate\": \"string\",\n          \"lenderName\": \"string\",\n          \"originalBalance\": 5090.418011879931,\n          \"currentBalance\": 3178.8309540168457,\n          \"monthlyPayment\": 1981.370343129648,\n          \"lienPosition\": 4044\n        },\n        {\n          \"lienUuid\": \"fa9d284a-0097-ae92-da1f-ddde7625fef9\",\n          \"originationDate\": \"string\",\n          \"lenderName\": \"string\",\n          \"originalBalance\": 9424.208043038685,\n          \"currentBalance\": 2670.5449460335362,\n          \"monthlyPayment\": 534.8684593714526,\n          \"lienPosition\": 4656\n        }\n      ],\n      \"underwriting\": {\n        \"decision\": \"string\",\n        \"minOfferAmount\": 6460.409547068552,\n        \"maxOfferAmount\": 5883.117569983046,\n        \"minOfferRate\": 2032.3185861280658,\n        \"maxOfferRate\": 19.682027932893533,\n        \"offers\": [\n          {\n            \"maxAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"minAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"originationFeePercent\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primeRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discounts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"preDiscountOriginationFee\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"maxAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"minAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"originationFeePercent\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primeRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discounts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"preDiscountOriginationFee\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"selectedOffer\": {\n          \"drawAmount\": 4332.064816047907,\n          \"estimatedMonthlyPayment\": 6485.138365473201,\n          \"loanAmount\": 4361.181969768833,\n          \"offerUuid\": \"744797a8-a3c9-1abd-5f23-e16a6b72a282\",\n          \"originationFee\": 2337.5815550129155,\n          \"originationFeePercent\": 4552.824020096322,\n          \"primeRate\": 5747.048122511223,\n          \"rate\": 4624.908573534354,\n          \"rateType\": \"VARIABLE\",\n          \"term\": 1187,\n          \"selectedDiscounts\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"creditLine\": 1842.0304330494341,\n          \"originationFeeAmount\": 1778.0072178251771\n        },\n        \"softCredit\": {\n          \"provider\": \"TRANS_UNION\",\n          \"score\": 6622,\n          \"timestamp\": \"1992-08-24T18:27:41.835Z\"\n        },\n        \"hardCredit\": {\n          \"provider\": \"TRANS_UNION\",\n          \"score\": 5794,\n          \"timestamp\": \"2014-05-10T23:08:10.915Z\"\n        },\n        \"monthlyIncome\": 1391.8846818746356,\n        \"statedMonthlyIncome\": 829.0569040915851,\n        \"preLoanDti\": 999.506796990608,\n        \"postLoanDti\": 7506.909818617639,\n        \"statedDti\": 548.4491433882155,\n        \"coDeedStatus\": \"COMPLETE\",\n        \"floodInsured\": true,\n        \"homeownersInsured\": false,\n        \"employmentType\": \"string\",\n        \"homeForSaleMlsResponse\": false,\n        \"homeForSaleBorrowerAttested\": true,\n        \"creditAsOfDate\": \"1968-09-27\",\n        \"pricingAsOfDate\": \"2007-08-02\",\n        \"guidelineVersion\": \"string\"\n      },\n      \"propertyValue\": {\n        \"borrowerEstimatedValue\": 901.8585530564882,\n        \"propertyAvmValue\": 1024.7446641460601,\n        \"preLoanCltv\": 4500.257377376409,\n        \"postLoanCltv\": 7824.168386082572,\n        \"preLoanAdjCltv\": 8512.969429647115,\n        \"postLoanAdjCltv\": 9764.427682328715,\n        \"postLoanAdjMinCltv\": 1467.1362953459422\n      },\n      \"manualNotary\": {\n        \"manualNotaryDate\": \"2006-12-24T23:02:25.944Z\",\n        \"manualNotaryFee\": 5249.002971339125\n      },\n      \"notary\": {\n        \"type\": \"NOT_APPLICABLE\",\n        \"fee\": 1114.0910714441154,\n        \"appointmentDate\": \"1960-03-21T02:36:16.261Z\",\n        \"completedDate\": \"1991-05-22T23:54:13.645Z\"\n      },\n      \"costs\": {\n        \"fixedCosts\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"borrowerPaidAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"borrowerPaidAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"dynamicCosts\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"borrowerPaidAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"borrowerPaidAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"totalPaidByBorrower\": 9422.053985307371\n      },\n      \"ddpDetails\": {\n        \"paidLiabilityPayoffAmount\": 6860.020851872393,\n        \"totalLiabilityPayoffAmount\": 6937.1775042698655,\n        \"liabilityPayoffAllocatedAmountDtiImpacting\": 5443.799484184414,\n        \"liabilityPayoffAllocatedAmountNonDtiImpacting\": 472.66373879766286,\n        \"lienPositionAfterPayoff\": 2283,\n        \"existingLiabilities\": {\n          \"eligible\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ineligible\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      \"utmParameters\": {\n        \"source\": \"string\",\n        \"medium\": \"string\",\n        \"campaign\": \"string\",\n        \"content\": \"string\",\n        \"term\": \"string\"\n      },\n      \"statusHistory\": [\n        {\n          \"overallStatus\": \"string\",\n          \"status\": \"string\",\n          \"timestamp\": \"2024-12-31T16:29:31.136Z\"\n        },\n        {\n          \"overallStatus\": \"string\",\n          \"status\": \"string\",\n          \"timestamp\": \"2009-12-22T18:39:35.833Z\"\n        }\n      ],\n      \"propertyDetails\": {\n        \"county\": \"string\",\n        \"propertyType\": \"PRIMARY\",\n        \"propertyUuid\": \"46317be4-060d-ce3a-99c5-15ca9e7513dd\",\n        \"corelogicPropertyId\": \"string\",\n        \"lotSquareFeet\": 974,\n        \"propertyFloodZone\": \"string\",\n        \"landUseDescription\": \"string\",\n        \"landUseCode\": \"string\",\n        \"buildingGrossArea\": 151.11420085637596,\n        \"propertyAcres\": 2126.5179954771697\n      },\n      \"borrowerDetails\": {\n        \"primary\": {\n          \"identityUuid\": \"22320705-70f6-43b7-9661-6445329dbe3b\",\n          \"email\": \"string\",\n          \"firstName\": \"string\",\n          \"middleName\": \"string\",\n          \"lastName\": \"string\",\n          \"suffix\": \"string\",\n          \"prefix\": \"string\",\n          \"dob\": \"2004-06-01\",\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phoneNumber\": \"string\"\n        },\n        \"additionalSigners\": [\n          {\n            \"identityUuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firstName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"middleName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"suffix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dob\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phoneNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"identityUuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firstName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"middleName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"suffix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dob\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phoneNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"assignedUsers\": [\n        {\n          \"userUuid\": \"6d3d2678-e0af-9fdf-ce3e-e71269d49419\"\n        },\n        {\n          \"userUuid\": \"7433798a-975f-ed74-323a-ff86a51bcf85\"\n        }\n      ],\n      \"conditions\": [\n        {\n          \"active\": false,\n          \"name\": \"string\",\n          \"createdDate\": \"1979-10-27T15:00:31.624Z\",\n          \"lastUpdateDate\": \"1983-11-12T16:52:37.236Z\"\n        },\n        {\n          \"active\": false,\n          \"name\": \"string\",\n          \"createdDate\": \"1954-10-20T13:50:24.643Z\",\n          \"lastUpdateDate\": \"1984-08-16T04:41:35.868Z\"\n        }\n      ],\n      \"demographics\": {\n        \"hispanicOrLatinoEthnicityType\": false,\n        \"ethnicityRefusal\": true,\n        \"otherEthnicityDescription\": \"string\",\n        \"genderRefusal\": false,\n        \"raceRefusal\": true,\n        \"raceAsianAdditionalDescription\": \"string\",\n        \"racePacificIslanderAdditionalDescription\": \"string\",\n        \"ethnicityCollectedBasedOnVisualObservationOrSurname\": false,\n        \"genderCollectedBasedOnVisualObservationOrName\": false,\n        \"raceCollectedBasedOnVisualObservationOrSurname\": true,\n        \"tribeName\": \"string\",\n        \"notHispanicOrLatino\": true,\n        \"ethnicityOriginTypes\": [\n          \"OTHER\",\n          \"OTHER\"\n        ],\n        \"genderTypes\": [\n          \"BOTH_MALE_AND_FEMALE\",\n          \"MALE\"\n        ],\n        \"raceTypes\": [\n          \"ASIAN\",\n          \"BLACK_OR_AFRICAN_AMERICAN\"\n        ],\n        \"raceDesignationTypes\": [\n          \"SAMOAN\",\n          \"FILIPINO\"\n        ]\n      },\n      \"thirdPartyIntegrations\": {\n        \"externalPartnerApplicationId\": \"string\",\n        \"externalPartnerReferenceId\": \"string\",\n        \"externalPartnerCustomerId\": \"string\"\n      },\n      \"fundingTransactionReport\": {\n        \"transactions\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"initiatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"effectiveDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"paymentRail\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"messageUuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sentAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"batchingCategory\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"initiatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"effectiveDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"paymentRail\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"messageUuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sentAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"batchingCategory\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"businessInfo\": {\n        \"entityName\": \"string\",\n        \"entityType\": \"PARTNERSHIP\",\n        \"ownershipPercentage\": 2145.2104469989463,\n        \"totalMonthlyRevenue\": 6069.363216121186,\n        \"ein\": \"string\",\n        \"stateOfIncorporation\": \"string\",\n        \"address\": {\n          \"city\": \" XvC　\\t\",\n          \"state\": \"KW\",\n          \"street1\": \"wYLD﻿B G\",\n          \"zip\": \"61084-2849\",\n          \"street2\": \"GKss  p\"\n        }\n      }\n    },\n    \"appUuid\": \"d362f7ca-7389-c3b1-559c-0802f5eed637\",\n    \"organization\": \"string\",\n    \"testVariants\": {\n      \"variants\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ]\n    },\n    \"appShortId\": \"string\",\n    \"borrowerAppLink\": \"string\",\n    \"loanOriginatorData\": {\n      \"loanOriginatorUuid\": \"e08d96e4-f171-30c5-9b65-ad9e251a2c58\",\n      \"brokerUuid\": \"a9207dbe-258c-b2ac-2e9e-b69207892d63\",\n      \"externalId\": \"string\",\n      \"nmls\": \"string\",\n      \"companyNmls\": \"string\",\n      \"licenses\": {\n        \"lenderLicense\": {\n          \"licenseHolder\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"stateLicense\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"loanOriginatorLicense\": {\n          \"licenseHolder\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"stateLicense\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"brokerLicense\": {\n          \"licenseHolder\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"stateLicense\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"companyDbaName\": \"string\",\n      \"email\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5fd2965c-39d2-4811-b06a-7e42368d4a1b",
+          "name": "Cancel HELOC inquiry",
+          "request": {
+            "name": "Cancel HELOC inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4ab0aff-6083-46df-b05f-060e4f4d2b6a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"request\": {\n    \"async\": false,\n    \"loanOriginatorUuid\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc1e464c-2a3e-43d1-bd12-27fb41db9c46",
+          "name": "Add income and liability payoff to a HELOC inquiry",
+          "request": {
+            "name": "Add income and liability payoff to a HELOC inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "asset-depletion"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"income\": {\n    \"employmentType\": \"<string>\",\n    \"grossAnnualIncome\": \"<number>\",\n    \"annualRetirementIncome\": \"<number>\",\n    \"annualInvestmentIncome\": \"<number>\",\n    \"annualBusinessIncome\": \"<number>\",\n    \"savingsAmount\": \"<number>\",\n    \"otherAnnualIncome\": \"<number>\"\n  },\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  },\n  \"liabilityPayoff\": {\n    \"selectedAccountsToPayoff\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d2216c0a-24db-4b31-8bac-014e9a0dc6a0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "asset-depletion"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"income\": {\n    \"employmentType\": \"FULL_TIME\",\n    \"grossAnnualIncome\": 4043.363428224739,\n    \"annualRetirementIncome\": 8960.221725431475,\n    \"annualInvestmentIncome\": 7228.760880722527,\n    \"annualBusinessIncome\": 6709.494560700117,\n    \"savingsAmount\": 2810.943374056187,\n    \"otherAnnualIncome\": 1668.7028886952148\n  },\n  \"request\": {\n    \"async\": false,\n    \"loanOriginatorUuid\": \"string\"\n  },\n  \"liabilityPayoff\": {\n    \"selectedAccountsToPayoff\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "465db0ba-6434-4f22-aee0-6ba8cfd55b37",
+          "name": "Add a borrower SSN to a HELOC inquiry",
+          "request": {
+            "name": "Add a borrower SSN to a HELOC inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "add-ssn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicant\": {\n    \"ssn\": \"<string>\"\n  },\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dc3467a5-8f51-47a1-9871-006ca6188e85",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "add-ssn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicant\": {\n    \"ssn\": \"072278429\"\n  },\n  \"request\": {\n    \"async\": false,\n    \"loanOriginatorUuid\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9a0f836-f53b-4ad5-9fa2-04c04a2e61bd",
+          "name": "Add borrower property estimate to a HELOC inquiry",
+          "request": {
+            "name": "Add borrower property estimate to a HELOC inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "add-property-estimate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"propertyEstimate\": {\n    \"borrowerEstimatedValue\": \"<number>\"\n  },\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70cc9bb5-289e-42f7-ba36-a382e76ab1c2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "add-property-estimate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"propertyEstimate\": {\n    \"borrowerEstimatedValue\": 3119.9849664282056\n  },\n  \"request\": {\n    \"async\": false,\n    \"loanOriginatorUuid\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26da8218-b16e-4806-a541-38bd52c64286",
+          "name": "Add income to a HELOC inquiry",
+          "request": {
+            "name": "Add income to a HELOC inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "add-income"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"income\": {\n    \"employmentType\": \"<string>\",\n    \"grossAnnualIncome\": \"<number>\",\n    \"annualRetirementIncome\": \"<number>\",\n    \"annualInvestmentIncome\": \"<number>\",\n    \"annualBusinessIncome\": \"<number>\",\n    \"savingsAmount\": \"<number>\",\n    \"otherAnnualIncome\": \"<number>\"\n  },\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0837af36-5ee9-453c-a3c5-863970f1a065",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "add-income"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"income\": {\n    \"employmentType\": \"PART_TIME\",\n    \"grossAnnualIncome\": 3134.030831660587,\n    \"annualRetirementIncome\": 3026.345328819036,\n    \"annualInvestmentIncome\": 7708.0766636762055,\n    \"annualBusinessIncome\": 8506.267972533311,\n    \"savingsAmount\": 878.4385679514772,\n    \"otherAnnualIncome\": 5245.890027603018\n  },\n  \"request\": {\n    \"async\": true,\n    \"loanOriginatorUuid\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e8d5f2a-ca35-403e-bb92-05a54c5e86d3",
+          "name": "Repull Credit for Inquiry",
+          "request": {
+            "name": "Repull Credit for Inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "repull-credit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "edf8c0f3-87ff-4dc5-80ad-d8190c5b3c2a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "repull-credit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"request\": {\n    \"async\": false,\n    \"loanOriginatorUuid\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74e7d731-7db0-4750-9de2-26199c19e13d",
+          "name": "Starts a new inquiry for a HELOC application",
+          "request": {
+            "name": "Starts a new inquiry for a HELOC application",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                "start"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicant\": {\n    \"dob\": \"<date>\",\n    \"email\": \"<string>\",\n    \"homeAddress\": {\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"street2\": \"<string>\"\n    },\n    \"income\": {\n      \"employmentType\": \"<string>\",\n      \"grossAnnualIncome\": \"<number>\",\n      \"annualRetirementIncome\": \"<number>\",\n      \"annualInvestmentIncome\": \"<number>\",\n      \"annualBusinessIncome\": \"<number>\",\n      \"savingsAmount\": \"<number>\",\n      \"otherAnnualIncome\": \"<number>\"\n    },\n    \"name\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"middleName\": \"<string>\",\n      \"suffix\": \"<string>\"\n    },\n    \"phone\": \"<string>\",\n    \"ssn\": \"<string>\"\n  },\n  \"property\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"street2\": \"<string>\"\n    },\n    \"isListedForSale\": \"<boolean>\",\n    \"propertyType\": \"<string>\",\n    \"borrowerEstimatedValue\": \"<number>\",\n    \"liens\": [\n      {\n        \"originalBalance\": \"<number>\",\n        \"originationDate\": \"<date>\",\n        \"lenderName\": \"<string>\",\n        \"currentBalance\": \"<number>\",\n        \"monthlyPayment\": \"<number>\"\n      },\n      {\n        \"originalBalance\": \"<number>\",\n        \"originationDate\": \"<date>\",\n        \"lenderName\": \"<string>\",\n        \"currentBalance\": \"<number>\",\n        \"monthlyPayment\": \"<number>\"\n      }\n    ],\n    \"ownershipType\": \"<string>\"\n  },\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  },\n  \"partnerDataRequest\": {\n    \"externalAppId\": \"<string>\",\n    \"externalReferenceId\": \"<string>\",\n    \"externalCustomerId\": \"<string>\",\n    \"utmParameters\": {\n      \"source\": \"<string>\",\n      \"medium\": \"<string>\",\n      \"campaign\": \"<string>\",\n      \"term\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  },\n  \"testVariantsRequest\": {\n    \"variants\": [\n      {\n        \"name\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"businessInfo\": {\n    \"entityName\": \"<string>\",\n    \"entityType\": \"<string>\",\n    \"ownershipPercentage\": \"<number>\",\n    \"totalMonthlyRevenue\": \"<number>\",\n    \"ein\": \"<string>\",\n    \"stateOfIncorporation\": \"<string>\",\n    \"address\": {\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"street2\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "749567c3-fa07-487e-96fb-dc849008ba84",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicant\": {\n    \"dob\": \"1972-02-29\",\n    \"email\": \"U7%p.b*NE.#o&x.-Y~LGM.ZuES_j$69.OV@H.aIMsc9WYhfDI.tIcCK8.W.hhYkMV.p.k7wnZb.LsTDz7zcTv.u.c.o\",\n    \"homeAddress\": {\n      \"city\": \"OduOR\\rn\",\n      \"state\": \"MO\",\n      \"street1\": \"D \",\n      \"zip\": \"30847-7015\",\n      \"street2\": \"RYORZk　TJwP\"\n    },\n    \"income\": {\n      \"employmentType\": \"UNEMPLOYED\",\n      \"grossAnnualIncome\": 2826.8168866146702,\n      \"annualRetirementIncome\": 2866.398215317736,\n      \"annualInvestmentIncome\": 3126.607320445629,\n      \"annualBusinessIncome\": 8538.217813158739,\n      \"savingsAmount\": 392.8489724567308,\n      \"otherAnnualIncome\": 2796.8449806102844\n    },\n    \"name\": {\n      \"firstName\": \"\\nnqT4oWP\",\n      \"lastName\": \"tE9Tbp\\rExd\",\n      \"prefix\": \"C VMJ6s4  k\",\n      \"middleName\": \"OgqPoVx\",\n      \"suffix\": \"string\"\n    },\n    \"phone\": \"(380 5202834\",\n    \"ssn\": \"425864203\"\n  },\n  \"property\": {\n    \"address\": {\n      \"city\": \"H\\t 'KI\\tqG \",\n      \"state\": \"PK\",\n      \"street1\": \".0Q\",\n      \"zip\": \"25518-3662\",\n      \"street2\": \"  K.   VEM\"\n    },\n    \"isListedForSale\": true,\n    \"propertyType\": \"SECONDARY\",\n    \"borrowerEstimatedValue\": 1529.060702699626,\n    \"liens\": [\n      {\n        \"originalBalance\": 5963.033956991879,\n        \"originationDate\": \"1960-02-12\",\n        \"lenderName\": \"string\",\n        \"currentBalance\": 6790.006259762517,\n        \"monthlyPayment\": 1299.0884245310929\n      },\n      {\n        \"originalBalance\": 764.7672919985049,\n        \"originationDate\": \"1991-02-12\",\n        \"lenderName\": \"string\",\n        \"currentBalance\": 946.920735710538,\n        \"monthlyPayment\": 9964.738166337314\n      }\n    ],\n    \"ownershipType\": \"UNKNOWN\"\n  },\n  \"request\": {\n    \"async\": false,\n    \"loanOriginatorUuid\": \"string\"\n  },\n  \"partnerDataRequest\": {\n    \"externalAppId\": \"string\",\n    \"externalReferenceId\": \"string\",\n    \"externalCustomerId\": \"string\",\n    \"utmParameters\": {\n      \"source\": \"string\",\n      \"medium\": \"string\",\n      \"campaign\": \"string\",\n      \"term\": \"string\",\n      \"content\": \"string\"\n    }\n  },\n  \"testVariantsRequest\": {\n    \"variants\": [\n      {\n        \"name\": \"string\"\n      },\n      {\n        \"name\": \"string\"\n      }\n    ]\n  },\n  \"businessInfo\": {\n    \"entityName\": \"string\",\n    \"entityType\": \"MULTI_OWNER_LLC\",\n    \"ownershipPercentage\": 9096.430730518883,\n    \"totalMonthlyRevenue\": 7287.792259824899,\n    \"ein\": \"string\",\n    \"stateOfIncorporation\": \"bT\",\n    \"address\": {\n      \"city\": \"XOi \",\n      \"state\": \"SX\",\n      \"street1\": \"  ᠎\",\n      \"zip\": \"19192\",\n      \"street2\": \" F \"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"appUuid\": \"101075ec-0595-b089-5154-9628d1a23e29\"\n  },\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95433507-da05-4bd9-9b06-518f14444adc",
+          "name": "Reassign a HELOC lead to a different loan originator",
+          "request": {
+            "name": "Reassign a HELOC lead to a different loan originator",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "lead",
+                ":appUuid",
+                "reassign"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newLoanOriginatorUuid\": \"<string>\",\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "03eee407-6442-4a66-9b54-d4fe9c74e4c0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "lead",
+                    ":appUuid",
+                    "reassign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newLoanOriginatorUuid\": \"<string>\",\n  \"request\": {\n    \"async\": true,\n    \"loanOriginatorUuid\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25788322-3ab6-4ba4-a75a-744cb1c4215e",
+          "name": "Update Attributions to a HELOC inquiry",
+          "request": {
+            "name": "Update Attributions to a HELOC inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "attributions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributions\": {\n    \"utmParameters\": {\n      \"source\": \"<string>\",\n      \"medium\": \"<string>\",\n      \"campaign\": \"<string>\",\n      \"term\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"externalReferenceData\": {\n      \"externalApplicationId\": \"<string>\",\n      \"externalReferenceId\": \"<string>\",\n      \"externalCustomerId\": \"<string>\"\n    }\n  },\n  \"request\": {\n    \"async\": \"<boolean>\",\n    \"loanOriginatorUuid\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c48b4de9-3037-47c7-9452-229e6ea632b3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "attributions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributions\": {\n    \"utmParameters\": {\n      \"source\": \"string\",\n      \"medium\": \"string\",\n      \"campaign\": \"string\",\n      \"term\": \"string\",\n      \"content\": \"string\"\n    },\n    \"externalReferenceData\": {\n      \"externalApplicationId\": \"string\",\n      \"externalReferenceId\": \"string\",\n      \"externalCustomerId\": \"string\"\n    }\n  },\n  \"request\": {\n    \"async\": true,\n    \"loanOriginatorUuid\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0e50ab7-ad2d-4ac6-8caf-9a372e573ead",
+          "name": "Fetch matching properties on HELOC inquiry where multiple properties were returned for a single address",
+          "request": {
+            "name": "Fetch matching properties on HELOC inquiry where multiple properties were returned for a single address",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "properties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6cdebb8-3258-46b6-9c91-46d202d8e4b0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "properties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"properties\": [\n    {\n      \"address\": {\n        \"city\": \"\\u000b᠎   Y c\\fn\",\n        \"state\": \"GR\",\n        \"street1\": \"    TY X Kq\",\n        \"zip\": \"88924-0280\",\n        \"street2\": \" \"\n      },\n      \"id\": \"string\",\n      \"apn\": \"string\",\n      \"longitude\": 1539.9442892477255,\n      \"latitude\": 816.395686103496\n    },\n    {\n      \"address\": {\n        \"city\": \"ny FhBow\",\n        \"state\": \"DQ\",\n        \"street1\": \"vQ4 \",\n        \"zip\": \"84337-1409\",\n        \"street2\": \"6.P  DD2\"\n      },\n      \"id\": \"string\",\n      \"apn\": \"string\",\n      \"longitude\": 2066.760431264071,\n      \"latitude\": 5886.77254017128\n    }\n  ],\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "906fd323-5bb9-4d5e-aec3-03c287973e1a",
+          "name": "Fetch direct debt payoff details on HELOC inquiry if applicable",
+          "request": {
+            "name": "Fetch direct debt payoff details on HELOC inquiry if applicable",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "direct-debt-payoff-offers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fdb6c46b-e7a4-4e1b-9113-1dc7974b5ff2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "direct-debt-payoff-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"appUuid\": \"c267930d-364c-9af3-d293-49ceb715982c\",\n    \"offers\": [\n      {\n        \"maxAmount\": 8830.776145574935,\n        \"minAmount\": 9078.080938315266,\n        \"originationFeePercent\": 5748.547429702951,\n        \"primeRate\": 9397.523150589932,\n        \"rate\": 1532.570050698553,\n        \"rateType\": \"FIXED\",\n        \"term\": 3594,\n        \"uuid\": \"7bec83d0-aa91-acc0-bf1c-ef6774c11a98\",\n        \"discounts\": [\n          {\n            \"rateDiscountAmount\": 5695.931181146588,\n            \"type\": \"string\"\n          },\n          {\n            \"rateDiscountAmount\": 7081.381258175266,\n            \"type\": \"string\"\n          }\n        ],\n        \"preDiscountOriginationFee\": 3870.571604311461\n      },\n      {\n        \"maxAmount\": 7493.859025360235,\n        \"minAmount\": 4704.108338841575,\n        \"originationFeePercent\": 1507.8691828215185,\n        \"primeRate\": 9416.255194086267,\n        \"rate\": 5236.16131689209,\n        \"rateType\": \"VARIABLE\",\n        \"term\": 197,\n        \"uuid\": \"34fb3949-ac40-ac40-5acd-fbd5ffefd800\",\n        \"discounts\": [\n          {\n            \"rateDiscountAmount\": 2540.746015747176,\n            \"type\": \"string\"\n          },\n          {\n            \"rateDiscountAmount\": 6852.985823148115,\n            \"type\": \"string\"\n          }\n        ],\n        \"preDiscountOriginationFee\": 1037.464652429053\n      }\n    ],\n    \"organization\": \"string\"\n  },\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1106066-c6ff-43d4-a916-5dd8a110dc44",
+          "name": "Get borrower costs for an application",
+          "request": {
+            "name": "Get borrower costs for an application",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "inquiry",
+                ":appUuid",
+                "borrower-costs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offerUuid",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "selectedOfferAmount",
+                  "value": "<number>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58af5789-076d-43aa-85ee-018ae85b83c8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "inquiry",
+                    ":appUuid",
+                    "borrower-costs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offerUuid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "selectedOfferAmount",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ],\n  \"costs\": {\n    \"fixedCosts\": [\n      {\n        \"type\": \"TITLE_FEE\",\n        \"borrowerPaidAmount\": 1193.4829505017085\n      },\n      {\n        \"type\": \"NOTARY_FEE\",\n        \"borrowerPaidAmount\": 3251.1063701861463\n      }\n    ],\n    \"dynamicCosts\": [\n      {\n        \"type\": \"DRIVE_BY_VALUATION_FEE\",\n        \"borrowerPaidAmount\": 3905.2662717359267\n      },\n      {\n        \"type\": \"BPO_FEE\",\n        \"borrowerPaidAmount\": 1684.836186388714\n      }\n    ],\n    \"totalPaidByBorrower\": 4478.302128026665\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9edc0213-94bb-4aee-911d-1854de5d6192",
+          "name": "List documents for an application",
+          "request": {
+            "name": "List documents for an application",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "document",
+                ":appUuid",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec3b2c2a-8031-4f5b-bbfc-9bcf339d1fff",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "document",
+                    ":appUuid",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documents\": [\n    {\n      \"contentType\": \"string\",\n      \"docType\": \"string\",\n      \"documentUuid\": \"string\",\n      \"fileName\": \"string\"\n    },\n    {\n      \"contentType\": \"string\",\n      \"docType\": \"string\",\n      \"documentUuid\": \"string\",\n      \"fileName\": \"string\"\n    }\n  ],\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06009633-fb2b-411a-9c09-e2a58b93d7db",
+          "name": "Download all documents for an application",
+          "request": {
+            "name": "Download all documents for an application",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "document",
+                ":appUuid",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da9ed6ec-6212-4b89-9a3c-578a0dc036ea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "document",
+                    ":appUuid",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5f7ce0a-a7cf-4ad8-a329-2dfb16387a0a",
+          "name": "Download a document for an application",
+          "request": {
+            "name": "Download a document for an application",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "document",
+                ":appUuid",
+                "download",
+                ":documentUuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4cf10898-2e16-436f-8070-a782a80128e4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "document",
+                    ":appUuid",
+                    "download",
+                    ":documentUuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c39c2abe-5ac5-46af-8c22-4415f96dd108",
+          "name": "Fetch details about an application",
+          "request": {
+            "name": "Fetch details about an application",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "heloc",
+                "v1",
+                "details",
+                ":appUuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b13e20ac-4978-4723-aa3b-dcec2e7e48de",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "heloc",
+                    "v1",
+                    "details",
+                    ":appUuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"appData\": {\n      \"autopay\": true,\n      \"isBridgeLoan\": true,\n      \"isInquiry\": true,\n      \"overallStatus\": \"string\",\n      \"startedAsInquiry\": true,\n      \"status\": \"string\",\n      \"nextInquiryStep\": \"BORROWER_AUTH_REQUIRED\",\n      \"keyDates\": {\n        \"createdDate\": \"2022-12-19T22:20:31.979Z\",\n        \"expirationDate\": \"1968-10-22T10:28:50.649Z\",\n        \"rescissionEndDate\": \"1996-06-20T13:46:34.477Z\",\n        \"signingDate\": \"1955-12-24T20:12:08.112Z\",\n        \"completedDate\": \"1973-03-27T21:30:18.824Z\",\n        \"canceledDate\": \"1976-10-28T06:40:38.882Z\",\n        \"declinedDate\": \"2007-04-13T20:51:29.533Z\",\n        \"summaryDisclosureDate\": \"1962-10-20T09:50:15.101Z\",\n        \"productAgreementESignedTimestamp\": \"2019-05-15T20:45:55.176Z\",\n        \"firstPaymentDueDate\": \"2026-04-18T20:45:34.862Z\",\n        \"expectedPayoffDate\": \"1961-09-24T16:41:52.331Z\",\n        \"lastStatusUpdateDate\": \"2010-07-13T18:20:02.729Z\"\n      },\n      \"propertyAddress\": {\n        \"city\": \"YI\",\n        \"state\": \"GN\",\n        \"street1\": \"-69Qsx9D \",\n        \"zip\": \"07371\",\n        \"street2\": \"W﻿U\\u000bzWd 4 E\"\n      },\n      \"statusReasons\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ownershipType\": \"OTHER\",\n      \"financingPurpose\": \"DEBT_CONSOLIDATION\",\n      \"propertyLiens\": [\n        {\n          \"lienUuid\": \"632e1349-5826-de8d-7c6f-78b8fbb3fe25\",\n          \"originationDate\": \"string\",\n          \"lenderName\": \"string\",\n          \"originalBalance\": 2353.577320017015,\n          \"currentBalance\": 6769.878360235707,\n          \"monthlyPayment\": 9292.118714004951,\n          \"lienPosition\": 7196\n        },\n        {\n          \"lienUuid\": \"b554c674-58c6-937d-3108-c7a47ac9f0d2\",\n          \"originationDate\": \"string\",\n          \"lenderName\": \"string\",\n          \"originalBalance\": 1090.7936057954948,\n          \"currentBalance\": 4992.094174313114,\n          \"monthlyPayment\": 2671.2574579968864,\n          \"lienPosition\": 762\n        }\n      ],\n      \"underwriting\": {\n        \"decision\": \"string\",\n        \"minOfferAmount\": 3528.0214232510366,\n        \"maxOfferAmount\": 5538.281899284365,\n        \"minOfferRate\": 1428.9373201400101,\n        \"maxOfferRate\": 37.06119855902523,\n        \"offers\": [\n          {\n            \"maxAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"minAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"originationFeePercent\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primeRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discounts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"preDiscountOriginationFee\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"maxAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"minAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"originationFeePercent\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primeRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discounts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"preDiscountOriginationFee\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"selectedOffer\": {\n          \"drawAmount\": 4854.492741230476,\n          \"estimatedMonthlyPayment\": 7075.636511496585,\n          \"loanAmount\": 746.8982326417373,\n          \"offerUuid\": \"62ced15b-e99b-0b10-39b5-7b021b5fab79\",\n          \"originationFee\": 240.6786073467493,\n          \"originationFeePercent\": 9740.781787773201,\n          \"primeRate\": 1605.2202288999683,\n          \"rate\": 7924.017488790184,\n          \"rateType\": \"FIXED\",\n          \"term\": 3357,\n          \"selectedDiscounts\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"creditLine\": 4164.492930928694,\n          \"originationFeeAmount\": 26.85049415049989\n        },\n        \"softCredit\": {\n          \"provider\": \"TRANS_UNION\",\n          \"score\": 4634,\n          \"timestamp\": \"2004-12-08T09:29:26.818Z\"\n        },\n        \"hardCredit\": {\n          \"provider\": \"TRANS_UNION\",\n          \"score\": 9323,\n          \"timestamp\": \"1967-08-01T16:10:05.214Z\"\n        },\n        \"monthlyIncome\": 4356.832000506633,\n        \"statedMonthlyIncome\": 3938.8301576313056,\n        \"preLoanDti\": 4227.908645814483,\n        \"postLoanDti\": 9194.912537738526,\n        \"statedDti\": 5880.853105988662,\n        \"coDeedStatus\": \"INITIAL\",\n        \"floodInsured\": false,\n        \"homeownersInsured\": false,\n        \"employmentType\": \"string\",\n        \"homeForSaleMlsResponse\": true,\n        \"homeForSaleBorrowerAttested\": true,\n        \"creditAsOfDate\": \"1958-05-11\",\n        \"pricingAsOfDate\": \"1972-09-08\",\n        \"guidelineVersion\": \"string\"\n      },\n      \"propertyValue\": {\n        \"borrowerEstimatedValue\": 359.4360679491415,\n        \"propertyAvmValue\": 7880.417113318834,\n        \"preLoanCltv\": 8319.0394793131,\n        \"postLoanCltv\": 1802.7720822146243,\n        \"preLoanAdjCltv\": 3397.3109241195807,\n        \"postLoanAdjCltv\": 6491.593108412618,\n        \"postLoanAdjMinCltv\": 3561.3737767397215\n      },\n      \"manualNotary\": {\n        \"manualNotaryDate\": \"1991-06-09T12:30:19.970Z\",\n        \"manualNotaryFee\": 1097.1915408301047\n      },\n      \"notary\": {\n        \"type\": \"MANUAL\",\n        \"fee\": 5731.905402847548,\n        \"appointmentDate\": \"1987-01-05T12:18:42.284Z\",\n        \"completedDate\": \"1971-01-05T06:11:47.502Z\"\n      },\n      \"costs\": {\n        \"fixedCosts\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"borrowerPaidAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"borrowerPaidAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"dynamicCosts\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"borrowerPaidAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"borrowerPaidAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"totalPaidByBorrower\": 3460.449422142382\n      },\n      \"ddpDetails\": {\n        \"paidLiabilityPayoffAmount\": 5872.874511918681,\n        \"totalLiabilityPayoffAmount\": 5972.375613274425,\n        \"liabilityPayoffAllocatedAmountDtiImpacting\": 148.97861594553973,\n        \"liabilityPayoffAllocatedAmountNonDtiImpacting\": 4863.554257645462,\n        \"lienPositionAfterPayoff\": 1791,\n        \"existingLiabilities\": {\n          \"eligible\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ineligible\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      \"utmParameters\": {\n        \"source\": \"string\",\n        \"medium\": \"string\",\n        \"campaign\": \"string\",\n        \"content\": \"string\",\n        \"term\": \"string\"\n      },\n      \"statusHistory\": [\n        {\n          \"overallStatus\": \"string\",\n          \"status\": \"string\",\n          \"timestamp\": \"1949-05-12T09:36:49.006Z\"\n        },\n        {\n          \"overallStatus\": \"string\",\n          \"status\": \"string\",\n          \"timestamp\": \"1957-05-26T23:49:10.977Z\"\n        }\n      ],\n      \"propertyDetails\": {\n        \"county\": \"string\",\n        \"propertyType\": \"INVESTMENT\",\n        \"propertyUuid\": \"92d427bb-7998-eff7-7802-fc522f0db9f7\",\n        \"corelogicPropertyId\": \"string\",\n        \"lotSquareFeet\": 6114,\n        \"propertyFloodZone\": \"string\",\n        \"landUseDescription\": \"string\",\n        \"landUseCode\": \"string\",\n        \"buildingGrossArea\": 1893.480830061469,\n        \"propertyAcres\": 8190.31800359908\n      },\n      \"borrowerDetails\": {\n        \"primary\": {\n          \"identityUuid\": \"89b31f6a-b0c0-6fd0-0b11-515c09b40dd1\",\n          \"email\": \"string\",\n          \"firstName\": \"string\",\n          \"middleName\": \"string\",\n          \"lastName\": \"string\",\n          \"suffix\": \"string\",\n          \"prefix\": \"string\",\n          \"dob\": \"1956-07-16\",\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"phoneNumber\": \"string\"\n        },\n        \"additionalSigners\": [\n          {\n            \"identityUuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firstName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"middleName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"suffix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dob\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phoneNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"identityUuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firstName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"middleName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"suffix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dob\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phoneNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"assignedUsers\": [\n        {\n          \"userUuid\": \"90ae6cb2-e4a9-5277-2c05-14407d100fb0\"\n        },\n        {\n          \"userUuid\": \"a254b2d0-2757-7331-de99-0ffa5ce8f10d\"\n        }\n      ],\n      \"conditions\": [\n        {\n          \"active\": false,\n          \"name\": \"string\",\n          \"createdDate\": \"1949-08-03T09:40:23.727Z\",\n          \"lastUpdateDate\": \"1994-05-20T14:35:23.928Z\"\n        },\n        {\n          \"active\": false,\n          \"name\": \"string\",\n          \"createdDate\": \"1948-07-26T21:05:52.324Z\",\n          \"lastUpdateDate\": \"2005-12-07T17:23:39.770Z\"\n        }\n      ],\n      \"demographics\": {\n        \"hispanicOrLatinoEthnicityType\": false,\n        \"ethnicityRefusal\": true,\n        \"otherEthnicityDescription\": \"string\",\n        \"genderRefusal\": true,\n        \"raceRefusal\": false,\n        \"raceAsianAdditionalDescription\": \"string\",\n        \"racePacificIslanderAdditionalDescription\": \"string\",\n        \"ethnicityCollectedBasedOnVisualObservationOrSurname\": false,\n        \"genderCollectedBasedOnVisualObservationOrName\": false,\n        \"raceCollectedBasedOnVisualObservationOrSurname\": false,\n        \"tribeName\": \"string\",\n        \"notHispanicOrLatino\": true,\n        \"ethnicityOriginTypes\": [\n          \"PUERTO_RICAN\",\n          \"MEXICAN\"\n        ],\n        \"genderTypes\": [\n          \"MALE\",\n          \"BOTH_MALE_AND_FEMALE\"\n        ],\n        \"raceTypes\": [\n          \"WHITE\",\n          \"AMERICAN_INDIAN_OR_ALASKA_NATIVE\"\n        ],\n        \"raceDesignationTypes\": [\n          \"GUAMANIAN_OR_CHAMORRO\",\n          \"JAPANESE\"\n        ]\n      },\n      \"thirdPartyIntegrations\": {\n        \"externalPartnerApplicationId\": \"string\",\n        \"externalPartnerReferenceId\": \"string\",\n        \"externalPartnerCustomerId\": \"string\"\n      },\n      \"fundingTransactionReport\": {\n        \"transactions\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"initiatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"effectiveDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"paymentRail\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"messageUuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sentAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"batchingCategory\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"initiatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"effectiveDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"paymentRail\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"messageUuid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sentAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"batchingCategory\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"businessInfo\": {\n        \"entityName\": \"string\",\n        \"entityType\": \"PARTNERSHIP\",\n        \"ownershipPercentage\": 8855.285419859574,\n        \"totalMonthlyRevenue\": 8299.51391665032,\n        \"ein\": \"string\",\n        \"stateOfIncorporation\": \"string\",\n        \"address\": {\n          \"city\": \"\\nA\\t\",\n          \"state\": \"DD\",\n          \"street1\": \"WV\",\n          \"zip\": \"97873\",\n          \"street2\": \"L\"\n        }\n      }\n    },\n    \"appUuid\": \"7ebe53f7-1fb8-8d7b-7c42-255a34bb8fc4\",\n    \"organization\": \"string\",\n    \"testVariants\": {\n      \"variants\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ]\n    },\n    \"appShortId\": \"string\",\n    \"borrowerAppLink\": \"string\",\n    \"loanOriginatorData\": {\n      \"loanOriginatorUuid\": \"df09badb-a161-42e9-e39c-e13cbc37df84\",\n      \"brokerUuid\": \"83bbf0bb-0591-6e8b-0325-c999fd6b8f38\",\n      \"externalId\": \"string\",\n      \"nmls\": \"string\",\n      \"companyNmls\": \"string\",\n      \"licenses\": {\n        \"lenderLicense\": {\n          \"licenseHolder\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"stateLicense\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"loanOriginatorLicense\": {\n          \"licenseHolder\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"stateLicense\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"brokerLicense\": {\n          \"licenseHolder\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"stateLicense\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"companyDbaName\": \"string\",\n      \"email\": \"string\"\n    }\n  },\n  \"messages\": [\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"level\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.test.figure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b28d86a8-d1fd-4d6f-b235-26889120069b",
+    "name": "HELOC Inquiries Encryption HELOC application requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "HELOC Inquiries Encryption Payment History V1 API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment History V1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download the latest record of payments for owned loans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/external/secure/api/v1/portfolio/download/owned/payment-history",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ownsPayments",
+                "value": "",
+                "type": "query",
+                "description": "Only show payments received during ownership of loan"
+              }
+            ]
+          },
+          "docs": "Download the latest record of payments for owned loans"
+        },
+        {
+          "info": {
+            "name": "Download the record of payments for owned loans by asset type and report date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/external/secure/api/v1/portfolio/download/owned/payment-history/:assetType/:reportDate",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "reportDate",
+                "value": "",
+                "type": "path",
+                "description": "Cutoff date of requested payment history"
+              },
+              {
+                "name": "ownsPayments",
+                "value": "",
+                "type": "query",
+                "description": "Only show payments received during ownership of loan"
+              }
+            ]
+          },
+          "docs": "Download the record of payments for owned loans by asset type and report date"
+        },
+        {
+          "info": {
+            "name": "Download the record of payments for owned loans by asset type between report start date and end date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/external/secure/api/v1/portfolio/download/owned/payment-history/:assetType/:reportStartDate/:reportEndDate",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "reportStartDate",
+                "value": "",
+                "type": "path",
+                "description": "Start cutoff date of requested payment history"
+              },
+              {
+                "name": "reportEndDate",
+                "value": "",
+                "type": "path",
+                "description": "End cutoff date of requested payment history"
+              },
+              {
+                "name": "ownsPayments",
+                "value": "",
+                "type": "query",
+                "description": "Only show payments received during ownership of loan"
+              }
+            ]
+          },
+          "docs": "Download the record of payments for owned loans by asset type between report start date and end date"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,223 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "HELOC Inquiries Encryption Loan Tape V1 API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Loan Tape V1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns the distinct list of asset types for currently owned loans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/external/secure/api/v1/portfolio/asset/types",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns the distinct list of asset types for currently owned loans"
+        },
+        {
+          "info": {
+            "name": "Returns the distinct list of available layouts for the given asset type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/external/secure/api/v1/portfolio/layouts/:assetType",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the distinct list of available layouts for the given asset type"
+        },
+        {
+          "info": {
+            "name": "Download the latest record of owned loan data by asset type and layout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/external/secure/api/v1/portfolio/download/owned/:assetType/:layout",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "layout",
+                "value": "",
+                "type": "path",
+                "description": "CSV layout available for the provided asset type"
+              },
+              {
+                "name": "fundingStatus",
+                "value": "",
+                "type": "query",
+                "description": "Filter for loans by funding status. Options are FUNDED, RECISSION, or ANY. Defaults to FUNDED."
+              }
+            ]
+          },
+          "docs": "Download the latest record of owned loan data by asset type and layout"
+        },
+        {
+          "info": {
+            "name": "Download CSV record of owned loan data by asset type, layout, and cutoff date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/external/secure/api/v1/portfolio/download/owned/:assetType/:layout/:date",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "layout",
+                "value": "",
+                "type": "path",
+                "description": "CSV layout available for the provided asset type"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "Cutoff date of requested tape"
+              },
+              {
+                "name": "fundingStatus",
+                "value": "",
+                "type": "query",
+                "description": "Filter for loans by funding status. Options are FUNDED, RECISSION, or ANY. Defaults to FUNDED."
+              }
+            ]
+          },
+          "docs": "Download CSV record of owned loan data by asset type, layout, and cutoff date"
+        },
+        {
+          "info": {
+            "name": "Download the latest record of pledged loan data by asset type and layout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/external/secure/api/v1/portfolio/download/pledged/:assetType/:layout",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "layout",
+                "value": "",
+                "type": "path",
+                "description": "CSV layout available for the provided asset type"
+              },
+              {
+                "name": "cutoffDate",
+                "value": "",
+                "type": "query",
+                "description": "Cutoff date for requested asset data"
+              }
+            ]
+          },
+          "docs": "Download the latest record of pledged loan data by asset type and layout"
+        },
+        {
+          "info": {
+            "name": "Download CSV record of pledged loan data by asset type, layout, and cutoff date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/external/secure/api/v1/portfolio/download/pledged/:assetType/:layout/:date",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "layout",
+                "value": "",
+                "type": "path",
+                "description": "CSV layout available for the provided asset type"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "Date in which assets were actively encumbered by a warehouse"
+              },
+              {
+                "name": "cutoffDate",
+                "value": "",
+                "type": "query",
+                "description": "Cutoff date for requested asset data"
+              }
+            ]
+          },
+          "docs": "Download CSV record of pledged loan data by asset type, layout, and cutoff date"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

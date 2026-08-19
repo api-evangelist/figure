@@ -1,0 +1,440 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "HELOC Inquiries Encryption HELOC application requests API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "HELOC application requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verify liens for a HELOC inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/verify-liens",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify liens for a HELOC inquiry"
+        },
+        {
+          "info": {
+            "name": "Select matching property on HELOC inquiry where multiple properties were returned for a single address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/select-property",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Select matching property on HELOC inquiry where multiple properties were returned for a single address"
+        },
+        {
+          "info": {
+            "name": "Select an offer for a HELOC inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/select-offer",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Select an offer for a HELOC inquiry"
+        },
+        {
+          "info": {
+            "name": "Cancel HELOC inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/cancel",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel HELOC inquiry"
+        },
+        {
+          "info": {
+            "name": "Add income and liability payoff to a HELOC inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/asset-depletion",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add income and liability payoff to a HELOC inquiry"
+        },
+        {
+          "info": {
+            "name": "Add a borrower SSN to a HELOC inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/add-ssn",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a borrower SSN to a HELOC inquiry"
+        },
+        {
+          "info": {
+            "name": "Add borrower property estimate to a HELOC inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/add-property-estimate",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add borrower property estimate to a HELOC inquiry"
+        },
+        {
+          "info": {
+            "name": "Add income to a HELOC inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/add-income",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add income to a HELOC inquiry"
+        },
+        {
+          "info": {
+            "name": "Repull Credit for Inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/repull-credit",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Repull Credit for Inquiry"
+        },
+        {
+          "info": {
+            "name": "Starts a new inquiry for a HELOC application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/start",
+            "headers": [
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts a new inquiry for a HELOC application"
+        },
+        {
+          "info": {
+            "name": "Reassign a HELOC lead to a different loan originator",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.test.figure.com/products/heloc/v1/lead/:appUuid/reassign",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reassign a HELOC lead to a different loan originator"
+        },
+        {
+          "info": {
+            "name": "Update Attributions to a HELOC inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/attributions",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Attributions to a HELOC inquiry"
+        },
+        {
+          "info": {
+            "name": "Fetch matching properties on HELOC inquiry where multiple properties were returned for a single address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/properties",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch matching properties on HELOC inquiry where multiple properties were returned for a single address"
+        },
+        {
+          "info": {
+            "name": "Fetch direct debt payoff details on HELOC inquiry if applicable",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/direct-debt-payoff-offers",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetch direct debt payoff details on HELOC inquiry if applicable"
+        },
+        {
+          "info": {
+            "name": "Get borrower costs for an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/products/heloc/v1/inquiry/:appUuid/borrower-costs",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offerUuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "selectedOfferAmount",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get borrower costs for an application"
+        },
+        {
+          "info": {
+            "name": "List documents for an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/products/heloc/v1/document/:appUuid/list",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List documents for an application"
+        },
+        {
+          "info": {
+            "name": "Download all documents for an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/products/heloc/v1/document/:appUuid/download",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download all documents for an application"
+        },
+        {
+          "info": {
+            "name": "Download a document for an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/products/heloc/v1/document/:appUuid/download/:documentUuid",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "documentUuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download a document for an application"
+        },
+        {
+          "info": {
+            "name": "Fetch details about an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.test.figure.com/products/heloc/v1/details/:appUuid",
+            "params": [
+              {
+                "name": "appUuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetch details about an application"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
