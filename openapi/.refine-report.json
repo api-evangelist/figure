@@ -1,20 +1,15 @@
 {
   "provider": "figure",
   "sources": [
-    "figure-encryption-api-openapi.yml",
-    "figure-heloc-application-requests-api-openapi.yml",
-    "figure-heloc-offers-api-openapi.yml",
-    "figure-loan-originator-requests-api-openapi.yml",
-    "figure-loan-tape-v1-api-openapi.yml",
-    "figure-loan-tape-v2-api-openapi.yml",
-    "figure-payment-history-v1-api-openapi.yml",
-    "figure-payment-history-v2-api-openapi.yml"
+    "_original/figure-heloc-inquiries-openapi-original.yml",
+    "_original/figure-heloc-pre-qualification-openapi-original.yml",
+    "_original/figure-portfolio-manager-openapi-original.yml"
   ],
   "outputs": [
     "figure-encryption-api-openapi.yml",
     "figure-heloc-application-requests-api-openapi.yml",
-    "figure-heloc-offers-api-openapi.yml",
     "figure-loan-originator-requests-api-openapi.yml",
+    "figure-heloc-offers-api-openapi.yml",
     "figure-loan-tape-v1-api-openapi.yml",
     "figure-loan-tape-v2-api-openapi.yml",
     "figure-payment-history-v1-api-openapi.yml",
@@ -23,6 +18,28 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "figure-heloc-inquiries-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "figure-heloc-inquiries-openapi-original.yml: declared missing tag: Encryption",
+    "figure-heloc-inquiries-openapi-original.yml: declared missing tag: HELOC application requests",
+    "figure-heloc-inquiries-openapi-original.yml: declared missing tag: Loan Originator requests",
+    "figure-heloc-pre-qualification-openapi-original.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "figure-heloc-pre-qualification-openapi-original.yml: declared missing tag: HELOC Offers",
+    "figure-portfolio-manager-openapi-original.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "figure-portfolio-manager-openapi-original.yml: declared missing tag: Loan Tape V1",
+    "figure-portfolio-manager-openapi-original.yml: declared missing tag: Loan Tape V2",
+    "figure-portfolio-manager-openapi-original.yml: declared missing tag: Payment History V1",
+    "figure-portfolio-manager-openapi-original.yml: declared missing tag: Payment History V2"
+  ],
+  "skipped": [
+    "figure-encryption-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "figure-heloc-application-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "figure-heloc-offers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "figure-loan-originator-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "figure-loan-tape-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "figure-loan-tape-v2-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "figure-payment-history-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "figure-payment-history-v2-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

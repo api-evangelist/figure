@@ -1,14 +1,21 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: HELOC Inquiries Encryption Payment History V2 API
-  version: v1
+  title: Portfolio Manager Payment History V2 API
+  description: 'Welcome to the Portfolio Manager API Reference.
+
+
+    The Reporting API allows asset holders to query current and historical reports as needed.
+
+
+    The API is organized around the REST methodology, and it uses resource-oriented URLs and common HTTP response codes to indicate API errors.
+
+
+    All requests are authenticated using an `apikey` header.
+
+    '
+  version: latest
 servers:
-- url: https://api.test.figure.com
-  description: Test environment
-- url: https://api.figure.com
-  description: Production environment
-security:
-- apikey: []
+- url: https://figure.com
 tags:
 - name: Payment History V2
 paths:
@@ -66,9 +73,3 @@ paths:
                 xml:
                   name: String
       deprecated: false
-components:
-  securitySchemes:
-    apikey:
-      type: apiKey
-      name: apikey
-      in: header

@@ -1,14 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: HELOC Inquiries Encryption HELOC Offers API
+  title: Non-Licensed HELOC Pre-qualification HELOC Offers API
+  description: HELOC offer pre-qualification
   version: v1
 servers:
 - url: https://api.test.figure.com
   description: Test environment
 - url: https://api.figure.com
   description: Production environment
-security:
-- apikey: []
 tags:
 - name: HELOC Offers
 paths:
@@ -58,96 +57,6 @@ paths:
       parameters: null
 components:
   schemas:
-    AffiliateOfferDto:
-      required:
-      - apr
-      - interestRate
-      - loanAmount
-      - monthlyPayment
-      - originationFee
-      - rateType
-      - term
-      type: object
-      properties:
-        term:
-          type: integer
-          description: Pay off period in months
-          format: int32
-          example: 120
-        rateType:
-          type: string
-          description: Fixed or variable
-          example: fixed
-        loanAmount:
-          type: number
-          description: Requested amount and/or max amount offered plus origination fee
-          example: 146860.0
-        interestRate:
-          type: number
-          description: Interest rate
-          example: 6.25
-        monthlyPayment:
-          type: number
-          description: Monthly payment on plan
-          example: 1648.95
-        apr:
-          type: number
-          description: Annual percentage rate
-          example: 6.25
-        originationFee:
-          type: number
-          description: Fee that will be added to loan amount
-          example: 7328
-      description: List of offer objects for approved requests
-    OptionalAddressRequest:
-      type: object
-      properties:
-        uuid:
-          type: string
-          format: uuid
-        street1:
-          type: string
-          description: Property street address
-          example: 3082 KENSINGTON CT SW
-        street2:
-          type: string
-          description: Property street continued
-        city:
-          type: string
-          description: Property city
-          example: ATLANTA
-        state:
-          type: string
-          description: 2 char US state
-          example: GA
-        zip:
-          type: string
-          description: 5 or 5+4 char US zip code
-          example: '30331'
-        type:
-          type: string
-          description: "Type: \n* `HOME` \n* `MAILING` \n* `SECONDARY` \n* `INVESTMENT`"
-          example: HOME
-          enum:
-          - HOME
-          - MAILING
-          - SECONDARY
-          - INVESTMENT
-          - UNRECOGNIZED
-        ownership:
-          type: string
-          description: "Ownership: \n* `SOLE` \n* `JOINT` \n* `TRUST` \n* `LLC` \n* `OTHER` \n* `UNKNOWN`"
-          example: SOLE
-          enum:
-          - UNKNOWN
-          - SOLE
-          - JOINT
-          - TRUST
-          - LLC
-          - OTHER
-          - UNRECOGNIZED
-        ownerLegalName:
-          type: string
     AffiliateOfferResponse:
       required:
       - personalizedUrl
@@ -226,9 +135,10 @@ components:
           description: Last name
           example: Johnsontesth
         suffix:
-          type: string
+          type:
+          - string
+          - 'null'
           description: suffix
-          nullable: true
           example: jr
         email:
           type: string
@@ -345,20 +255,113 @@ components:
           example: false
           default: false
         queryParams:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Append additional query parameters to applicant url. Only utm_id is supported currently.
-          nullable: true
           example: utm_id=123456
         propertyValue:
-          type: number
+          type:
+          - number
+          - 'null'
           description: Estimate value of property. Required property attestation is true for affiliate profile
-          nullable: true
           example: 1000000.0
         monthlyMortgagePayment:
-          type: number
+          type:
+          - number
+          - 'null'
           description: Monthly payment on mortgage. High recommended for attested property values so offers can be more accurate.
-          nullable: true
           example: 1648.95
+    AffiliateOfferDto:
+      required:
+      - apr
+      - interestRate
+      - loanAmount
+      - monthlyPayment
+      - originationFee
+      - rateType
+      - term
+      type: object
+      properties:
+        term:
+          type: integer
+          description: Pay off period in months
+          format: int32
+          example: 120
+        rateType:
+          type: string
+          description: Fixed or variable
+          example: fixed
+        loanAmount:
+          type: number
+          description: Requested amount and/or max amount offered plus origination fee
+          example: 146860.0
+        interestRate:
+          type: number
+          description: Interest rate
+          example: 6.25
+        monthlyPayment:
+          type: number
+          description: Monthly payment on plan
+          example: 1648.95
+        apr:
+          type: number
+          description: Annual percentage rate
+          example: 6.25
+        originationFee:
+          type: number
+          description: Fee that will be added to loan amount
+          example: 7328
+      description: List of offer objects for approved requests
+    OptionalAddressRequest:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        street1:
+          type: string
+          description: Property street address
+          example: 3082 KENSINGTON CT SW
+        street2:
+          type: string
+          description: Property street continued
+        city:
+          type: string
+          description: Property city
+          example: ATLANTA
+        state:
+          type: string
+          description: 2 char US state
+          example: GA
+        zip:
+          type: string
+          description: 5 or 5+4 char US zip code
+          example: '30331'
+        type:
+          type: string
+          description: "Type: \n* `HOME` \n* `MAILING` \n* `SECONDARY` \n* `INVESTMENT`"
+          example: HOME
+          enum:
+          - HOME
+          - MAILING
+          - SECONDARY
+          - INVESTMENT
+          - UNRECOGNIZED
+        ownership:
+          type: string
+          description: "Ownership: \n* `SOLE` \n* `JOINT` \n* `TRUST` \n* `LLC` \n* `OTHER` \n* `UNKNOWN`"
+          example: SOLE
+          enum:
+          - UNKNOWN
+          - SOLE
+          - JOINT
+          - TRUST
+          - LLC
+          - OTHER
+          - UNRECOGNIZED
+        ownerLegalName:
+          type: string
     EncryptedHelocOfferRequest:
       required:
       - encrypted
@@ -366,8 +369,3 @@ components:
       properties:
         encrypted:
           type: string
-  securitySchemes:
-    apikey:
-      type: apiKey
-      name: apikey
-      in: header
